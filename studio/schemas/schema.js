@@ -8,7 +8,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // import blockContent from './blockContent'
 import post from './post'
 import author from './author'
-
+import project from './project'
+import skills from './skills'
+import experience from './experience'
+import gallery from './gallery'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -19,5 +22,9 @@ export default createSchema({
     /* Your types here! */
     post,
     author,
+    project,
+    skills,
+    experience,
+    gallery
   ]),
 })
