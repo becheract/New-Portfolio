@@ -1,6 +1,6 @@
 export default {
-  name: "skills",
-  title: "Skills",
+  name: "skill",
+  title: "Skill",
   type: "document",
   fields: [
     {
@@ -10,10 +10,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "skills",
-      title: "Skills",
+      name: "picture",
+      title: "Picture",
       type: "image",
-      of: [{ type: "image" }],
+      options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

@@ -12,18 +12,18 @@ export default function PortfolioImage({ title, image: source }) {
       )}
     >
       <Image
-        className="w-full h-auto"
         layout="responsive"
         width={2000}
         height={1000}
         alt={`Cover Image for ${title}`}
         src={urlForImage(source).height(1000).width(2000).url()}
         sizes="100vw"
+        className={"border-solid border-2 border-sky-500"}
       />
     </div>
   ) : (
     <div style={{ paddingTop: "50%", backgroundColor: "#ddd" }} />
   );
 
-  return <>{image}</>;
+  return <div className={""}>{image}</div>;
 }

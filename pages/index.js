@@ -6,11 +6,10 @@ import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { CMS_NAME } from "../lib/constants";
 import { portfolioQuery } from "../lib/queries";
-import { usePreviewSubscription } from "../lib/sanity";
-import { getClient, overlayDrafts, previewClient } from "../lib/sanity.server";
-import { useEffect, useState } from "react";
+import { previewClient } from "../lib/sanity.server";
 
 export default function Index({ projects }) {
+  console.log(projects);
   return (
     <>
       <Head>
@@ -26,7 +25,8 @@ export default function Index({ projects }) {
                 title={project.title}
                 content={project.content}
                 project_image={project.project_image}
-                skills={project.skills}
+                skills={project.skill}
+                author={project.author}
               />
             );
           })}

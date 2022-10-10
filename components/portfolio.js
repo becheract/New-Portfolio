@@ -6,6 +6,8 @@ import Title from "../components/title";
 import Content from "../components/content";
 import PortfolioImage from "../components/portfolioImage";
 import { useState, useEffect } from "react";
+import SkillsImage from "../components/skillsImage";
+
 export default function Portfolio({
   title,
   index,
@@ -15,8 +17,6 @@ export default function Portfolio({
 }) {
   const [text, setText] = useState();
 
-  console.log(skills);
-
   useEffect(() => {
     content.forEach((textBlock) => {
       setText(textBlock.children[0].text);
@@ -24,10 +24,18 @@ export default function Portfolio({
   });
 
   return (
-    <div key={index}>
-      <Title title={title} />
-      <Content content={text} />
-      <PortfolioImage image={project_image} title={title} />
+    <div
+      key={index}
+      className={"flex border-solid border-2 border-sky-500 my-40 h-64"}
+    >
+      <div className="w-1/3 flex flex-col justify-center border-solid border-2 border-sky-500 h-full">
+        <PortfolioImage image={project_image} title={title} />
+      </div>
+
+      <div className="w-full flex flex-col">
+        <Title title={title} />
+        <Content content={text} />
+      </div>
     </div>
   );
 }
