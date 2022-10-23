@@ -1,7 +1,3 @@
-import Avatar from "../components/avatar";
-import Date from "../components/date";
-import CoverImage from "../components/cover-image";
-import Link from "next/link";
 import Title from "../components/title";
 import Content from "../components/content";
 import PortfolioImage from "../components/portfolioImage";
@@ -16,6 +12,7 @@ export default function Portfolio({
   project_image,
 }) {
   const [text, setText] = useState();
+  const [skillsList, setSkillsList] = useState(skills);
 
   useEffect(() => {
     content.forEach((textBlock) => {
@@ -35,6 +32,15 @@ export default function Portfolio({
       <div className="w-full flex flex-col">
         <Title title={title} />
         <Content content={text} />
+        <div
+          className={
+            "flex flex-row w-full border-solid border-2 border-red-500"
+          }
+        >
+          {skillsList.map((skill, index) => {
+            return <SkillsImage image={skill.picture} key={index} />;
+          })}
+        </div>
       </div>
     </div>
   );

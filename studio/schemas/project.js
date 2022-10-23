@@ -9,6 +9,7 @@ export default {
       type: "string",
       validation: (Rule) => Rule.required(),
     },
+
     {
       name: "content",
       title: "Content",
@@ -16,17 +17,19 @@ export default {
       of: [{ type: "block" }],
     },
     {
-      name: "skill",
-      title: "Skill",
+      name: "skills",
+      title: "Skills",
       type: "array",
-      of: [{ type: "skill" }],
+      of: [{ type: "reference", to: { type: "skill" } }],
     },
+
     {
-      name: "author",
-      title: "Author",
-      type: "reference",
-      to: [{ type: "author" }],
+      name: "category",
+      title: "Category",
+      type: "array",
+      of: [{ type: "reference", to: { type: "category" } }],
     },
+
     {
       name: "project_image",
       title: "Project Image",

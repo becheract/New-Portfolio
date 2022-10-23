@@ -12,6 +12,7 @@ import project from "./project";
 import skill from "./skill";
 import experience from "./experience";
 import gallery from "./gallery";
+import category from "./category";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -26,5 +27,6 @@ export default createSchema({
     project,
     experience,
     gallery,
+    category,
   ]),
 });
