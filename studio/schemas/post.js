@@ -44,10 +44,10 @@ export default {
       type: "datetime",
     },
     {
-      name: "author",
-      title: "Author",
-      type: "reference",
-      to: [{ type: "author" }],
+      name: "blogCategory",
+      title: "Blog Category",
+      type: "array",
+      of: [{ type: "reference", to: { type: "blogcategory" } }],
     },
   ],
   preview: {

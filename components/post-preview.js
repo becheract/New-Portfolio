@@ -1,7 +1,7 @@
-import Avatar from '../components/avatar'
-import Date from '../components/date'
-import CoverImage from './cover-image'
-import Link from 'next/link'
+import Avatar from "../components/avatar";
+import Date from "../components/date";
+import CoverImage from "./cover-image";
+import Link from "next/link";
 
 export default function PostPreview({
   title,
@@ -10,6 +10,7 @@ export default function PostPreview({
   excerpt,
   author,
   slug,
+  blogCategory,
 }) {
   return (
     <div>
@@ -25,7 +26,13 @@ export default function PostPreview({
         <Date dateString={date} />
       </div>
       <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-      {author && <Avatar name={author.name} picture={author.picture} />}
+      {blogCategory.map((category, index) => {
+        return (
+          <>
+            <h1 key={index}>{category.name}</h1>
+          </>
+        );
+      })}
     </div>
-  )
+  );
 }

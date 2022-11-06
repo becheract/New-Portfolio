@@ -10,13 +10,10 @@ export default function HeroPost({
   excerpt,
   author,
   slug,
+  blogCategory,
 }) {
   return (
     <section>
-      <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
-        Newest Post
-      </h2>
-
       <div className="mb-8 md:mb-16">
         <CoverImage slug={slug} title={title} image={coverImage} priority />
       </div>
@@ -33,7 +30,13 @@ export default function HeroPost({
         </div>
         <div>
           <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-          {author && <Avatar name={author.name} picture={author.picture} />}
+          {blogCategory.map((category, index) => {
+            return (
+              <>
+                <h1>{category.name}</h1>
+              </>
+            );
+          })}
         </div>
       </div>
     </section>

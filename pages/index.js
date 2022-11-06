@@ -4,10 +4,15 @@ import Portfolio from "../components/portfolio";
 import Intro from "../components/intro";
 
 import { useState, useEffect } from "react";
-import { portfolioQuery } from "../lib/queries";
-import { skillsQuery } from "../lib/queries";
+import {
+  portfolioQuery,
+  skillsQuery,
+  experienceQuery,
+  projectCategoryQuery,
+} from "../lib/queries";
 import { previewClient } from "../lib/sanity.server";
 import SkillSection from "../components/skillSection";
+import Experience from "../components/Experience";
 import Button from "../components/button";
 
 import GitHub from "../assets/git.png";
@@ -15,9 +20,10 @@ import Linkedin from "../assets/linkedin.png";
 import Stack from "../assets/stack.png";
 import Twitter from "../assets/twitter.png";
 
-export default function Index({ projects, skills }) {
+export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
-  const [projectsFilter, setProjectsFilter] = useState(projects);
+
+  const [allProjects, setAllProjects] = useState(projects);
   const [socialLinks, setSocialLinks] = useState([
     GitHub,
     Linkedin,
@@ -26,19 +32,8 @@ export default function Index({ projects, skills }) {
   ]);
 
   useEffect(() => {
-    console.log(projectsFilter);
-    switch (filter) {
-      case "All":
-        break;
-      case "Mobile":
-        break;
-      case "UI/UX":
-        break;
-      case "Web":
-        break;
-    }
-  }, [filter]);
-
+    console.log(category);
+  });
   return (
     <>
       <Head>
@@ -46,12 +41,18 @@ export default function Index({ projects, skills }) {
       </Head>
 
       <Container>
-        <h1 className="">Hi 👋🏽 , Welcome To My Garden</h1>
-        <h3>Full-stack web developer based in Canada.</h3>
-        <div className="flex flex-row gap-x-10">
-          {socialLinks.map((images, index) => {
-            return <img src={images.src} className="w-12" key={index} />;
-          })}
+        <div className="">
+          <h1 className="font-bold sm:text-phHeading md:text-tbHeading xl:text-deHeading">
+            Hi 👋🏽 , Welcome To My Garden
+          </h1>
+          <h3 className="font-bold text-xl">
+            Full-stack web developer based in Canada.
+          </h3>
+          <div className="flex flex-row gap-x-10">
+            {socialLinks.map((images, index) => {
+              return <img src={images.src} className="w-12" key={index} />;
+            })}
+          </div>
         </div>
       </Container>
 
@@ -67,57 +68,61 @@ export default function Index({ projects, skills }) {
             >
               All
             </button>
-            <button
-              className="font-bold text-xl"
-              onClick={() => setFilter("Mobile")}
-            >
-              Mobile
-            </button>
-            <button
-              className="font-bold text-xl"
-              onClick={() => setFilter("UI/UX")}
-            >
-              UI/UX
-            </button>
-            <button
-              className="font-bold text-xl"
-              onClick={() => setFilter("Web")}
-            >
-              Web
-            </button>
+            {category.map((category, index) => {
+              return (
+                <>
+                  <button
+                    className="font-bold text-xl"
+                    onClick={() => setFilter(category.name)}
+                  >
+                    {category.name}
+                  </button>
+                </>
+              );
+            })}
           </div>
         </div>
-        {projects.length > 0 &&
-          projects.map((project, index) => {
-            console.log(project);
-            return (
-              <Portfolio
-                key={index}
-                title={project.title}
-                content={project.content}
-                project_image={project.project_image}
-                skills={project.skills}
-              />
-            );
-          })}
+
+        {filter === "All"
+          ? allProjects.map((project, index) => {
+              return (
+                <Portfolio
+                  key={index}
+                  title={project.title}
+                  content={project.content}
+                  project_image={project.project_image}
+                  skills={project.skills}
+                />
+              );
+            })
+          : allProjects.map((project, index) => {
+              return filter === project.category[0].name ? (
+                <Portfolio
+                  key={index}
+                  title={project.title}
+                  content={project.content}
+                  project_image={project.project_image}
+                  skills={project.skills}
+                />
+              ) : null;
+            })}
       </Container>
 
       <Container>
         <Intro text={"Skills & Experience"} />
-        <div className="flex flex-wrap w-full h-40 gap-1 flex-row  border-solid border-2 p-3 border-sky-500 justify-start">
+        <div className="flex flex-wrap w-full h-40 gap-1 flex-row  border-solid border-2 p-3 border-sky-500 justify-start ">
           {skills.length > 0 &&
             skills.map((skill, index) => {
               return <SkillSection key={index} skill={skill} />;
             })}
         </div>
 
-        <div></div>
-      </Container>
-
-      <Container>
-        <Intro text={"Contact"} />
-        <div className="bg-gray-800 w-11/12 h-3/5">Hello</div>
-        <Button>Send</Button>
+        <div className="flex flex-row w-full flex-wrap  border-solid border-2 p-3 border-red-500 my-20">
+          {experience.length > 0 &&
+            experience.map((exp, index) => {
+              return <Experience exp={exp} index={index} />;
+            })}
+        </div>
       </Container>
     </>
   );
@@ -126,10 +131,14 @@ export default function Index({ projects, skills }) {
 export async function getStaticProps() {
   const projects = await previewClient.fetch(portfolioQuery);
   const skills = await previewClient.fetch(skillsQuery);
+  const experience = await previewClient.fetch(experienceQuery);
+  const category = await previewClient.fetch(projectCategoryQuery);
   return {
     props: {
       projects,
       skills,
+      experience,
+      category,
     },
   };
 }
