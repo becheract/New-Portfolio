@@ -58,8 +58,8 @@ export default function Index({
         <Container>
           <Intro text={"Blog 📖"} />
 
-          <div className="flex justify-start flex-row flex-wrap w-screen">
-            <div className="flex flex-row gap-x-10 w-100">
+          <div className="">
+            <div className="">
               <button
                 className="font-bold text-xl"
                 onClick={() => setFilter("All")}

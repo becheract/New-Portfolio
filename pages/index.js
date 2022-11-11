@@ -57,8 +57,8 @@ export default function Index({ projects, skills, experience, category }) {
         <div className="flex justify-start">
           <Heading>Portfolio</Heading>
         </div>
-        <div className="flex justify-start flex-row flex-wrap">
-          <div className="flex flex-row gap-x-10">
+        <div className="">
+          <div className="">
             <button
               className="font-bold text-xl"
               onClick={() => setFilter("All")}
@@ -108,14 +108,14 @@ export default function Index({ projects, skills, experience, category }) {
 
       <Container>
         <Intro text={"Skills & Experience"} />
-        <div className="flex flex-wrap w-full h-40 gap-1 flex-row  border-solid border-2 p-3 border-green-500 justify-start ">
+        <div className="">
           {skills.length > 0 &&
             skills.map((skill, index) => {
               return <SkillSection key={index} skill={skill} />;
             })}
         </div>
 
-        <div className="flex flex-row w-full flex-wrap  border-solid border-2 p-3 border-red-500 my-20">
+        <div className="">
           {experience.length > 0 &&
             experience.map((exp, index) => {
               return <Experience exp={exp} index={index} />;
