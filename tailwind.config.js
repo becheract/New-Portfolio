@@ -4,6 +4,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -23,21 +24,23 @@ module.exports = {
       lineHeight: {
         tight: 1.2,
       },
-      fontSize: {
-        phHeading: ["32px"],
-        phBody: ["16px"],
-        phProject: ["16px"],
-        phText: ["10px"],
+      extend: {
+        fontSize: {
+          phHeading: "2rem",
+          phBody: "1rem",
+          phProject: "1rem",
+          phText: "0.625rem",
 
-        tbHeading: ["48px"],
-        tbBody: ["32px"],
-        tbProject: ["24px"],
-        tbText: ["16px"],
+          tbHeading: "3rem",
+          tbBody: "2rem",
+          tbProject: "1.5rem",
+          tbText: "1rem",
 
-        deHeading: ["64px"],
-        deBody: ["40px"],
-        deProject: ["24px"],
-        deText: ["16px"],
+          deHeading: "4rem",
+          deBody: "2.5rem",
+          deProject: "1.5rem",
+          deText: "1rem",
+        },
       },
       boxShadow: {
         small: "0 5px 10px rgba(0, 0, 0, 0.12)",

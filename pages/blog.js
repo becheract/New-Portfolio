@@ -9,8 +9,10 @@ import { indexQuery, categoryQuery } from "../lib/queries";
 import { previewClient } from "../lib/sanity.server";
 import { usePreviewSubscription } from "../lib/sanity";
 import { getClient, overlayDrafts } from "../lib/sanity.server";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogPost from "../components/blogPost";
+import { set } from "date-fns";
+
 export default function Index({
   allPosts: initialAllPosts,
   preview,
@@ -28,7 +30,24 @@ export default function Index({
 
   const [hero, ...morePosts] = allPosts || [];
   const [filter, setFilter] = useState("All");
-  console.log(allPosts);
+  const [years, setYears] = useState([]);
+  const [yearCategory, setYearCategory] = useState([]);
+
+  useEffect(() => {
+    let years = [];
+    allPosts.map((post) => {
+      let postYear = post.date.substring(0, 4);
+      let foundYear = years.includes(postYear);
+      if (foundYear == false) {
+        years.push(postYear);
+      } else {
+        return;
+      }
+    });
+    setYears(years);
+  }, []);
+
+  console.log(years);
   return (
     <>
       <Layout preview={preview}>
@@ -72,37 +91,52 @@ export default function Index({
             />
           )} */}
 
-          {filter === "All"
-            ? allPosts.map((post, index) => {
-                console.log(post);
-                return (
-                  <BlogPost
-                    title={post.title}
-                    key={index}
-                    coverImage={post.coverImage}
-                    date={post.date}
-                    author={post.author}
-                    slug={post.slug}
-                    excerpt={post.excerpt}
-                    blogCategory={post.blogCategory}
-                  />
-                );
-              })
-            : allPosts.map((post, index) => {
-                console.log(post);
-                return filter === post.category[0].name ? (
-                  <BlogPost
-                    title={post.title}
-                    coverImage={post.coverImage}
-                    key={index}
-                    date={post.date}
-                    author={post.author}
-                    slug={post.slug}
-                    excerpt={post.excerpt}
-                    blogCategory={post.blogCategory}
-                  />
-                ) : null;
-              })}
+          {years.map((year) => {
+            return (
+              <>
+                {filter === "All"
+                  ? allPosts.map((post, index) => {
+                      console.log(post);
+                      if (post.date.substring(0, 4) == year) {
+                        return (
+                          <>
+                            <h1>{year}</h1>
+                            <BlogPost
+                              title={post.title}
+                              coverImage={post.coverImage}
+                              key={index}
+                              date={post.date}
+                              author={post.author}
+                              slug={post.slug}
+                              excerpt={post.excerpt}
+                              blogCategory={post.blogCategory}
+                            />
+                          </>
+                        );
+                      }
+                    })
+                  : allPosts.map((post, index) => {
+                      return filter === post.blogCategory[0].name &&
+                        post.date.substring(0, 4) == year ? (
+                        <>
+                          {year}
+                          <BlogPost
+                            title={post.title}
+                            coverImage={post.coverImage}
+                            key={index}
+                            date={post.date}
+                            author={post.author}
+                            slug={post.slug}
+                            excerpt={post.excerpt}
+                            blogCategory={post.blogCategory}
+                          />
+                        </>
+                      ) : null;
+                    })}
+              </>
+            );
+          })}
+
           {morePosts.length > 0 && (
             <>
               <MoreStories posts={morePosts} />

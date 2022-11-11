@@ -3,6 +3,9 @@ import Container from "../components/container";
 import Portfolio from "../components/portfolio";
 import Intro from "../components/intro";
 
+import Heading from "../components/Heading";
+import Body from "../components/Heading";
+
 import { useState, useEffect } from "react";
 import {
   portfolioQuery,
@@ -41,24 +44,18 @@ export default function Index({ projects, skills, experience, category }) {
       </Head>
 
       <Container>
-        <div className="">
-          <h1 className="font-bold sm:text-phHeading md:text-tbHeading xl:text-deHeading">
-            Hi 👋🏽 , Welcome To My Garden
-          </h1>
-          <h3 className="font-bold text-xl">
-            Full-stack web developer based in Canada.
-          </h3>
-          <div className="flex flex-row gap-x-10">
-            {socialLinks.map((images, index) => {
-              return <img src={images.src} className="w-12" key={index} />;
-            })}
-          </div>
+        <Heading>Hi 👋🏽 , Welcome To My Garden</Heading>
+        <Body>Full-stack web developer based in Canada.</Body>
+        <div className="flex flex-row gap-x-10">
+          {socialLinks.map((images, index) => {
+            return <img src={images.src} className="w-12" key={index} />;
+          })}
         </div>
       </Container>
 
       <Container>
         <div className="flex justify-start">
-          <Intro text={"Portfolio"} />
+          <Heading>Portfolio</Heading>
         </div>
         <div className="flex justify-start flex-row flex-wrap">
           <div className="flex flex-row gap-x-10">
@@ -68,6 +65,7 @@ export default function Index({ projects, skills, experience, category }) {
             >
               All
             </button>
+
             {category.map((category, index) => {
               return (
                 <>
@@ -110,7 +108,7 @@ export default function Index({ projects, skills, experience, category }) {
 
       <Container>
         <Intro text={"Skills & Experience"} />
-        <div className="flex flex-wrap w-full h-40 gap-1 flex-row  border-solid border-2 p-3 border-sky-500 justify-start ">
+        <div className="flex flex-wrap w-full h-40 gap-1 flex-row  border-solid border-2 p-3 border-green-500 justify-start ">
           {skills.length > 0 &&
             skills.map((skill, index) => {
               return <SkillSection key={index} skill={skill} />;
