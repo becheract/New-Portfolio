@@ -3,8 +3,7 @@ import Container from "../components/container";
 import Portfolio from "../components/portfolio";
 import Intro from "../components/intro";
 
-import Heading from "../components/Heading";
-import Body from "../components/Heading";
+import Text from "../components/Text";
 
 import { useState, useEffect } from "react";
 import {
@@ -16,7 +15,6 @@ import {
 import { previewClient } from "../lib/sanity.server";
 import SkillSection from "../components/skillSection";
 import Experience from "../components/Experience";
-import Button from "../components/button";
 
 import GitHub from "../assets/git.png";
 import Linkedin from "../assets/linkedin.png";
@@ -44,41 +42,54 @@ export default function Index({ projects, skills, experience, category }) {
       </Head>
 
       <Container>
-        <Heading>Hi 👋🏽 , Welcome To My Garden</Heading>
-        <Body>Full-stack web developer based in Canada.</Body>
-        <div className="flex flex-row gap-x-10">
-          {socialLinks.map((images, index) => {
-            return <img src={images.src} className="w-12" key={index} />;
-          })}
+        <div className="flex flex-col gap-y-6 justify-start">
+          <Text style="Heading">
+            Hi 👋🏽 , Welcome To <br></br> My
+            <span className=" text-green-site"> Garden </span>
+          </Text>
+
+          <Text style="Body">Full-stack web developer based in Canada.</Text>
+          <div className="flex flex-row md:gap-x-16 gap-x-10 mt-3">
+            {socialLinks.map((images, index) => {
+              return (
+                <img
+                  src={images.src}
+                  alt={index}
+                  className="w-[2rem]"
+                  key={index}
+                />
+              );
+            })}
+          </div>
         </div>
       </Container>
 
       <Container>
-        <div className="flex justify-start">
-          <Heading>Portfolio</Heading>
+        <div className="flex justify-start ">
+          <Text style="Heading">Portfolio</Text>
         </div>
-        <div className="">
-          <div className="">
-            <button
-              className="font-bold text-xl"
-              onClick={() => setFilter("All")}
-            >
-              All
-            </button>
 
-            {category.map((category, index) => {
-              return (
-                <>
-                  <button
-                    className="font-bold text-xl"
-                    onClick={() => setFilter(category.name)}
-                  >
-                    {category.name}
-                  </button>
-                </>
-              );
-            })}
-          </div>
+        <div className="flex flex-wrap flex-row mt-5 gap-x-7">
+          <button
+            className="font-bold text-xl"
+            onClick={() => setFilter("All")}
+          >
+            <Text style="Project">All</Text>
+          </button>
+
+          {category.map((category, index) => {
+            return (
+              <>
+                <button
+                  key={index}
+                  className="font-bold text-xl"
+                  onClick={() => setFilter(category.name)}
+                >
+                  <Text style="Project">{category.name}</Text>
+                </button>
+              </>
+            );
+          })}
         </div>
 
         {filter === "All"
@@ -90,6 +101,7 @@ export default function Index({ projects, skills, experience, category }) {
                   content={project.content}
                   project_image={project.project_image}
                   skills={project.skills}
+                  github={project.github}
                 />
               );
             })
@@ -101,21 +113,24 @@ export default function Index({ projects, skills, experience, category }) {
                   content={project.content}
                   project_image={project.project_image}
                   skills={project.skills}
+                  github={project.github}
                 />
               ) : null;
             })}
       </Container>
 
       <Container>
-        <Intro text={"Skills & Experience"} />
-        <div className="">
+        <Text style="Heading">Skills & Experience</Text>
+        <div className="flex flex-row flex-wrap justify-evenly h-32 mb-6">
           {skills.length > 0 &&
             skills.map((skill, index) => {
               return <SkillSection key={index} skill={skill} />;
             })}
         </div>
+      </Container>
 
-        <div className="">
+      <Container>
+        <div className="flex flex-row mt-48">
           {experience.length > 0 &&
             experience.map((exp, index) => {
               return <Experience exp={exp} index={index} />;

@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeProvider>
-      <div className="w-screen h-screen flex flex-col">
+      <div className="w-screen h-100 flex flex-col ">
         <Nav />
         <Component {...pageProps} />
         <Footer />

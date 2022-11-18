@@ -8,21 +8,22 @@ export default function PortfolioImage({ title, image: source }) {
     <div
       className={cn(
         "shadow-small",
-        "hover:shadow-medium transition-shadow duration-200"
+        "shadow relative flex flex-col justify-center"
       )}
     >
       <Image
         layout="responsive"
-        width={2000}
-        height={1000}
+        width={2300}
+        height={2000}
         alt={`Cover Image for ${title}`}
-        src={urlForImage(source).height(1000).width(2000).url()}
+        src={urlForImage(source).height(2000).width(2300).url()}
         sizes="100vw"
+        className="rounded-[15px] absolute right-4"
       />
     </div>
   ) : (
     <div style={{ paddingTop: "50%", backgroundColor: "#ddd" }} />
   );
 
-  return <div>{image}</div>;
+  return <>{image}</>;
 }

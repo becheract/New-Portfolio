@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function about() {
   return (
     <div className="flex flex-col border-solid border-2 p-3 border-green-500 h-screen w-100">
-      <div className="border-solid border-2 p-3 border-blue-500 h-100">
+      <div className="border-solid border-2 p-3 border-blue-500 h-100 rounded">
         <Image src={Picture} alt="Bechera Chapman-Tremblay" />
         <ul>
           <li>👨🏾‍💻</li>

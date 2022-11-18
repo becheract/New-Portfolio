@@ -31,6 +31,13 @@ export default {
     },
 
     {
+      name: "github",
+      title: "Github",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+
+    {
       name: "project_image",
       title: "Project Image",
       type: "image",

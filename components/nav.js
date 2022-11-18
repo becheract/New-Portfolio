@@ -1,16 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import DarkMode from "./DarkMode";
+import Text from "./Text";
 export default function nav() {
   return (
-    <div className="">
-      <ul className="">
+    <div className="flex flex-row ">
+      <ul className="flex flex-row items-center justify-start gap-x-7 p-5 float-left">
         <Link href="/">
-          <h4 className="cursor-pointer not-italic font-bold text-4xl text-green-site font-Inter">
+          <h4 className="cursor-pointer not-italic font-bold text-[1.5rem] text-green-site font-Inter">
             Bechera
           </h4>
         </Link>
-
         <Link href="/about">
           <a>About</a>
         </Link>
@@ -19,7 +19,9 @@ export default function nav() {
           <a>Blog</a>
         </Link>
 
-        <DarkMode />
+        <div className="w-100">
+          <DarkMode />
+        </div>
       </ul>
     </div>
   );

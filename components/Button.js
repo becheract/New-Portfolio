@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export default function Button({children}) {
-  return (
-    <div className="bg-green-site w-20 rounded-3xl">
-        {children}
-    </div>
-  )
+export default function Button({ link, children }) {
+  return <button className="bg-green-site w-20 rounded-3xl"></button>;
 }
