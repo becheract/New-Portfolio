@@ -1,0 +1,25 @@
+.object {
+  text-align: center;
+}
+
+li > * {
+  position: absolute;
+}
+
+.rotatediv {
+  width: 300px;
+  height: 300px;
+  animation-name: rotate_animation;
+  animation-duration: 15s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate_animation {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

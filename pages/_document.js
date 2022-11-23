@@ -6,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <React.StrictMode>
-        <body>
+        <body className="">
           <Main />
           <NextScript />
         </body>

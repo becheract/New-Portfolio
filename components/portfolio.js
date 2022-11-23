@@ -19,14 +19,17 @@ export default function Portfolio({
   });
   console.log(content);
   return (
-    <a href={github}>
+    <a
+      href={github}
+      className="transform transition duration-500 hover:scale-110"
+    >
       <div
         key={index}
         className={
           "rounded-[25px] shadow-[0px_5px_5px_0.5px_rgba(0,0,0,0.25)] flex border-[0.5px] border-black-500 mt-10 h-60 "
         }
       >
-        <div className="w-1/3 flex flex-col justify-center h-full">
+        <div className="w-1/4 flex flex-col justify-center h-full">
           <PortfolioImage image={project_image} title={title} />
         </div>
 
@@ -34,7 +37,11 @@ export default function Portfolio({
           <Text style="Project">{title}</Text>
           <div className={"flex flex-row w-full "}>
             {skillsList.map((skill, index) => {
-              return <SkillsImage image={skill.picture} key={index} />;
+              return (
+                <div className="w-6 m-3">
+                  <SkillsImage image={skill.picture} key={index} />
+                </div>
+              );
             })}
           </div>
           <Text style="Text">{text}</Text>

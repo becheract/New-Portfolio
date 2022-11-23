@@ -24,17 +24,13 @@ import Twitter from "../assets/twitter.png";
 export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
 
-  const [allProjects, setAllProjects] = useState(projects);
-  const [socialLinks, setSocialLinks] = useState([
-    GitHub,
-    Linkedin,
-    Stack,
-    Twitter,
-  ]);
+  const [allProjects] = useState(projects);
+  const [socialLinks] = useState([GitHub, Linkedin, Stack, Twitter]);
 
   useEffect(() => {
     console.log(category);
   });
+
   return (
     <>
       <Head>
@@ -44,8 +40,16 @@ export default function Index({ projects, skills, experience, category }) {
       <Container>
         <div className="flex flex-col gap-y-6 justify-start">
           <Text style="Heading">
-            Hi 👋🏽 , Welcome To <br></br> My
-            <span className=" text-green-site"> Garden </span>
+            Hi
+            <span
+              className="animate-waving-hand w-fit mx-0 absolute "
+              id="wave"
+            >
+              👋🏽
+            </span>
+            <br />
+            Welcome To <br /> My
+            <span className=" text-green-site"> Portfolio Site </span>
           </Text>
 
           <Text style="Body">Full-stack web developer based in Canada.</Text>
@@ -71,7 +75,7 @@ export default function Index({ projects, skills, experience, category }) {
 
         <div className="flex flex-wrap flex-row mt-5 gap-x-7">
           <button
-            className="font-bold text-xl"
+            className="font-bold text-xl transform transition duration-500 hover:scale-110"
             onClick={() => setFilter("All")}
           >
             <Text style="Project">All</Text>
@@ -82,7 +86,7 @@ export default function Index({ projects, skills, experience, category }) {
               <>
                 <button
                   key={index}
-                  className="font-bold text-xl"
+                  className="font-bold text-xl transform transition duration-500 hover:scale-110"
                   onClick={() => setFilter(category.name)}
                 >
                   <Text style="Project">{category.name}</Text>
@@ -121,7 +125,7 @@ export default function Index({ projects, skills, experience, category }) {
 
       <Container>
         <Text style="Heading">Skills & Experience</Text>
-        <div className="flex flex-row flex-wrap justify-evenly h-32 mb-6">
+        <div className="flex flex-row flex-wrap justify-evenly  h-full w-100 mb-6 p-1">
           {skills.length > 0 &&
             skills.map((skill, index) => {
               return <SkillSection key={index} skill={skill} />;
@@ -130,10 +134,14 @@ export default function Index({ projects, skills, experience, category }) {
       </Container>
 
       <Container>
-        <div className="flex flex-row mt-48">
+        <div className="flex flex-col sm:flex-row">
           {experience.length > 0 &&
             experience.map((exp, index) => {
-              return <Experience exp={exp} index={index} />;
+              return (
+                <div className="flex  ">
+                  <Experience exp={exp} index={index} />
+                </div>
+              );
             })}
         </div>
       </Container>
