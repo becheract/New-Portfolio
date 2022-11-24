@@ -18,7 +18,7 @@ import GitHub from "../assets/git.png";
 import Linkedin from "../assets/linkedin.png";
 import Stack from "../assets/stack.png";
 import Twitter from "../assets/twitter.png";
-
+import Footer from "../components/footer";
 export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
 
@@ -139,6 +139,7 @@ export default function Index({ projects, skills, experience, category }) {
               );
             })}
         </div>
+        <Footer></Footer>
       </Container>
     </>
   );

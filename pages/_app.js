@@ -9,10 +9,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeProvider>
-      <div className="w-screen h-100 flex flex-col p-1" id="container">
+      <div className="w-screen h-screen flex flex-col p-1">
         <Nav />
         <Component {...pageProps} />
-        <Footer />
       </div>
     </ThemeProvider>
   );

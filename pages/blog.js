@@ -1,18 +1,13 @@
-import Head from "next/head";
 import Container from "../components/container";
 import MoreStories from "../components/more-stories";
-import HeroPost from "../components/hero-post";
-import Intro from "../components/intro";
-import Layout from "../components/layout";
+import Text from "../components/Text";
 import { CMS_NAME } from "../lib/constants";
 import { indexQuery, categoryQuery } from "../lib/queries";
-import { previewClient } from "../lib/sanity.server";
 import { usePreviewSubscription } from "../lib/sanity";
 import { getClient, overlayDrafts } from "../lib/sanity.server";
 import { useEffect, useState } from "react";
 import BlogPost from "../components/blogPost";
-import { set } from "date-fns";
-
+import Footer from "../components/footer";
 export default function Index({
   allPosts: initialAllPosts,
   preview,
@@ -31,7 +26,6 @@ export default function Index({
   const [hero, ...morePosts] = allPosts || [];
   const [filter, setFilter] = useState("All");
   const [years, setYears] = useState([]);
-  const [yearCategory, setYearCategory] = useState([]);
 
   useEffect(() => {
     let years = [];
@@ -50,76 +44,49 @@ export default function Index({
   console.log(years);
   return (
     <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
+      <Text style={"Heading"}>
+        <title>Next.js Blog Example with {CMS_NAME}</title>
+      </Text>
 
-        <Container>
-          <Intro text={"Blog 📖"} />
+      <Container>
+        <Text style={"Heading"}>
+          {" "}
+          My
+          <span className="text-green-site "> Blog</span> 📖
+        </Text>
 
-          <div className="">
-            <div className="">
-              <button
-                className="font-bold text-xl"
-                onClick={() => setFilter("All")}
-              >
-                All
-              </button>
-              {allBlogCategories.map((category, index) => {
-                return (
-                  <button
-                    className="font-bold text-xl"
-                    key={index}
-                    onClick={() => setFilter(category.name)}
-                  >
-                    {category.name}
-                  </button>
-                );
-              })}
-            </div>
+        <div className="">
+          <div className="flex flex-row justify-start gap-x-5 flex-wrap">
+            <button
+              className="font-bold text-xl "
+              onClick={() => setFilter("All")}
+            >
+              All
+            </button>
+            {allBlogCategories.map((category, index) => {
+              return (
+                <button
+                  className="font-bold text-xl"
+                  key={index}
+                  onClick={() => setFilter(category.name)}
+                >
+                  {category.name}
+                </button>
+              );
+            })}
           </div>
+        </div>
 
-          {/* {hero && (
-            <HeroPost
-              title={hero.title}
-              coverImage={hero.coverImage}
-              date={hero.date}
-              author={hero.author}
-              slug={hero.slug}
-              excerpt={hero.excerpt}
-            />
-          )} */}
-
-          {years.map((year) => {
-            return (
-              <>
-                {filter === "All"
-                  ? allPosts.map((post, index) => {
-                      console.log(post);
-                      if (post.date.substring(0, 4) == year) {
-                        return (
-                          <>
-                            <h1>{year}</h1>
-                            <BlogPost
-                              title={post.title}
-                              coverImage={post.coverImage}
-                              key={index}
-                              date={post.date}
-                              author={post.author}
-                              slug={post.slug}
-                              excerpt={post.excerpt}
-                              blogCategory={post.blogCategory}
-                            />
-                          </>
-                        );
-                      }
-                    })
-                  : allPosts.map((post, index) => {
-                      return filter === post.blogCategory[0].name &&
-                        post.date.substring(0, 4) == year ? (
+        {years.map((year) => {
+          return (
+            <>
+              {filter === "All"
+                ? allPosts.map((post, index) => {
+                    console.log(post);
+                    if (post.date.substring(0, 4) == year) {
+                      return (
                         <>
-                          {year}
+                          <h1>{year}</h1>
                           <BlogPost
                             title={post.title}
                             coverImage={post.coverImage}
@@ -131,19 +98,38 @@ export default function Index({
                             blogCategory={post.blogCategory}
                           />
                         </>
-                      ) : null;
-                    })}
-              </>
-            );
-          })}
-
-          {morePosts.length > 0 && (
-            <>
-              <MoreStories posts={morePosts} />
+                      );
+                    }
+                  })
+                : allPosts.map((post, index) => {
+                    return filter === post.blogCategory[0].name &&
+                      post.date.substring(0, 4) == year ? (
+                      <>
+                        {year}
+                        <BlogPost
+                          title={post.title}
+                          coverImage={post.coverImage}
+                          key={index}
+                          date={post.date}
+                          author={post.author}
+                          slug={post.slug}
+                          excerpt={post.excerpt}
+                          blogCategory={post.blogCategory}
+                        />
+                      </>
+                    ) : null;
+                  })}
             </>
-          )}
-        </Container>
-      </Layout>
+          );
+        })}
+
+        {morePosts.length > 0 && (
+          <>
+            <MoreStories posts={morePosts} />
+          </>
+        )}
+      </Container>
+      <Footer></Footer>
     </>
   );
 }

@@ -1,9 +1,6 @@
-import Container from "./container";
-import { EXAMPLE_PATH } from "../lib/constants";
-
 export default function Footer() {
   return (
-    <footer className="flex justify-center my-7">
+    <footer className="flex justify-center my-7 align-center">
       <div>
         <p className="text-center">Made with ❤️ by Bechera Chapman-Tremblay</p>
         <div className="flex flex-row justify-center">
