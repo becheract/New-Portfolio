@@ -66,10 +66,15 @@ module.exports = {
       slide: {
         "0%": { translate: "200px 0px" },
       },
+
+      infinite: {
+        "100%": { transform: "translateX(-66.6666%)" },
+      },
     },
     animation: {
       "waving-hand": "wave 2s linear infinite",
-      "sliding-emoji": "slide 2s linear infinite",
+      "sliding-emoji": "slide 5s linear infinite",
+      infinite: "infinite 15s linear infinite",
     },
   },
   plugins: [],

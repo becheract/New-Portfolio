@@ -8,7 +8,7 @@ export default function nav() {
       <ul className="flex flex-row items-center justify-start gap-x-7 p-5 float-left ">
         <Link href="/">
           <h4 className="cursor-pointer not-italic font-bold text-[1.5rem] text-green-site font-Inter transform transition duration-500 hover:scale-110">
-            Bechera
+            Bechera 🖥️
           </h4>
         </Link>
         <Link href="/about">

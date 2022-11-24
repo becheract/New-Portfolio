@@ -21,7 +21,7 @@ export default function Portfolio({
   return (
     <a
       href={github}
-      className="transform transition duration-500 hover:scale-110"
+      className="transform transition duration-500 hover:scale-110 p-5 md:w-1/2"
     >
       <div
         key={index}
@@ -33,7 +33,7 @@ export default function Portfolio({
           <PortfolioImage image={project_image} title={title} />
         </div>
 
-        <div className="w-full flex flex-col gap-y-3 mt-1">
+        <div className="w-full flex flex-col gap-y-3 mt-1 p-2">
           <Text style="Project">{title}</Text>
           <div className={"flex flex-row w-full "}>
             {skillsList.map((skill, index) => {
