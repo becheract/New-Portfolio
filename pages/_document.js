@@ -4,9 +4,7 @@ import React from "react";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head>
-        <link rel="shortcut icon" href="/static/favicon.ico" />
-      </Head>
+      <Head></Head>
       <React.StrictMode>
         <body className="">
           <Main />

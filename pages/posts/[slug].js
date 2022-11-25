@@ -1,33 +1,38 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
-import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
-import Layout from '../../components/layout'
-import PostTitle from '../../components/post-title'
-import { CMS_NAME } from '../../lib/constants'
-import { postQuery, postSlugsQuery } from '../../lib/queries'
-import { urlForImage, usePreviewSubscription } from '../../lib/sanity'
-import { sanityClient, getClient, overlayDrafts } from '../../lib/sanity.server'
+import Head from "next/head";
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
+import Container from "../../components/container";
+import PostBody from "../../components/post-body";
+import MoreStories from "../../components/more-stories";
+import Header from "../../components/header";
+import PostHeader from "../../components/post-header";
+import SectionSeparator from "../../components/section-separator";
+import Layout from "../../components/layout";
+import PostTitle from "../../components/post-title";
+import { CMS_NAME } from "../../lib/constants";
+import { postQuery, postSlugsQuery } from "../../lib/queries";
+import { urlForImage, usePreviewSubscription } from "../../lib/sanity";
+import {
+  sanityClient,
+  getClient,
+  overlayDrafts,
+} from "../../lib/sanity.server";
+import Footer from "../../components/footer";
 
 export default function Post({ data = {}, preview }) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const slug = data?.post?.slug
+  const slug = data?.post?.slug;
   const {
     data: { post, morePosts },
   } = usePreviewSubscription(postQuery, {
     params: { slug },
     initialData: data,
     enabled: preview && slug,
-  })
+  });
 
   if (!router.isFallback && !slug) {
-    return <ErrorPage statusCode={404} />
+    return <ErrorPage statusCode={404} />;
   }
 
   return (
@@ -40,9 +45,7 @@ export default function Post({ data = {}, preview }) {
           <>
             <article>
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
+                <title>{post.title}</title>
                 {post.coverImage?.asset?._ref && (
                   <meta
                     key="ogImage"
@@ -50,7 +53,7 @@ export default function Post({ data = {}, preview }) {
                     content={urlForImage(post.coverImage)
                       .width(1200)
                       .height(627)
-                      .fit('crop')
+                      .fit("crop")
                       .url()}
                   />
                 )}
@@ -68,14 +71,15 @@ export default function Post({ data = {}, preview }) {
           </>
         )}
       </Container>
+      <Footer />
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps({ params, preview = false }) {
   const { post, morePosts } = await getClient(preview).fetch(postQuery, {
     slug: params.slug,
-  })
+  });
 
   return {
     props: {
@@ -87,13 +91,13 @@ export async function getStaticProps({ params, preview = false }) {
     },
     // If webhooks isn't setup then attempt to re-generate in 1 minute intervals
     revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 60,
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const paths = await sanityClient.fetch(postSlugsQuery)
+  const paths = await sanityClient.fetch(postSlugsQuery);
   return {
     paths: paths.map((slug) => ({ params: { slug } })),
     fallback: true,
-  }
+  };
 }

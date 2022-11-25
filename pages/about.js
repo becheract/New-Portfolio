@@ -3,9 +3,14 @@ import Picture from "../public/favicon/bechera.png";
 import Image from "next/image";
 import Text from "../components/Text";
 import Footer from "../components/footer";
+import Head from "next/head";
 export default function about() {
   return (
     <>
+      <Head>
+        <title>Bechera's Portfolio About</title>
+      </Head>
+
       <div className="flex flex-col sm:flex-row-reverse p-3 h-100 w-screen ">
         <div className="sm:w-1/4 p-5 h-50 rounded flex flex-col justify-center sm:justify-start items-center ">
           <Text style="Heading">

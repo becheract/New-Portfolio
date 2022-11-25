@@ -1,13 +1,14 @@
 import Container from "../components/container";
 import MoreStories from "../components/more-stories";
 import Text from "../components/Text";
-import { CMS_NAME } from "../lib/constants";
 import { indexQuery, categoryQuery } from "../lib/queries";
 import { usePreviewSubscription } from "../lib/sanity";
 import { getClient, overlayDrafts } from "../lib/sanity.server";
 import { useEffect, useState } from "react";
 import BlogPost from "../components/blogPost";
 import Footer from "../components/footer";
+import { uuid } from "uuidv4";
+import Head from "next/head";
 export default function Index({
   allPosts: initialAllPosts,
   preview,
@@ -43,8 +44,12 @@ export default function Index({
 
   return (
     <>
+      <Head>
+        <title>Bechera's Portfolio Blog</title>
+      </Head>
+
       <Text style={"Heading"}>
-        <title>Next.js Blog Example with {CMS_NAME}</title>
+        <title>Blog</title>
       </Text>
 
       <Container>
@@ -80,7 +85,7 @@ export default function Index({
           return (
             <>
               {filter === "All"
-                ? allPosts.map((post, index) => {
+                ? allPosts.map((post) => {
                     console.log(post);
                     if (post.date.substring(0, 4) == year) {
                       return (
@@ -88,7 +93,7 @@ export default function Index({
                           <BlogPost
                             title={post.title}
                             coverImage={post.coverImage}
-                            key={index}
+                            key={uuid()}
                             date={post.date}
                             author={post.author}
                             slug={post.slug}
@@ -99,15 +104,14 @@ export default function Index({
                       );
                     }
                   })
-                : allPosts.map((post, index) => {
+                : allPosts.map((post) => {
                     return filter === post.blogCategory[0].name &&
                       post.date.substring(0, 4) == year ? (
                       <>
-                        {year}
                         <BlogPost
                           title={post.title}
                           coverImage={post.coverImage}
-                          key={index}
+                          key={uuid()}
                           date={post.date}
                           author={post.author}
                           slug={post.slug}

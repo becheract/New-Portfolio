@@ -29,7 +29,7 @@ export default function Index({ projects, skills, experience, category }) {
   return (
     <>
       <Head>
-        <title>Bechera's Portfolio</title>
+        <title>Bechera's Portfolio Home</title>
       </Head>
 
       <Container>
