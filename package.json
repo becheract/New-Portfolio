@@ -4,7 +4,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "analyze": "ANALYZE=true next build",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
     "studio:dev": "npm --prefix studio run start",
     "studio:deploy": "npx vercel env pull && npm --prefix studio run deploy"
   },
@@ -14,6 +16,7 @@
     "@sanity/image-url": "^1.0.1",
     "@sanity/webhook": "^2.0.0",
     "classnames": "^2.3.1",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.29.1",
     "groq": "^2.33.2",
     "next": "latest",

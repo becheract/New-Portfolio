@@ -86,7 +86,6 @@ export default function Index({ projects, skills, experience, category }) {
           >
             <Text style="Project">All</Text>
           </button>
-
           {category.map((category) => {
             return (
               <>
@@ -100,6 +99,7 @@ export default function Index({ projects, skills, experience, category }) {
               </>
             );
           })}
+          ;
         </div>
 
         <div className="flex flex-col flex-wrap md:flex-row">
@@ -128,6 +128,7 @@ export default function Index({ projects, skills, experience, category }) {
                   />
                 ) : null;
               })}
+          ;
         </div>
       </Container>
 
@@ -138,6 +139,7 @@ export default function Index({ projects, skills, experience, category }) {
             skills.map((skill) => {
               return <SkillSection key={uuid()} skill={skill} />;
             })}
+          ;
         </div>
       </Container>
 
@@ -151,6 +153,7 @@ export default function Index({ projects, skills, experience, category }) {
                 </div>
               );
             })}
+          ;
         </div>
         <Footer></Footer>
       </Container>
