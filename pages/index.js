@@ -29,7 +29,8 @@ export default function Index({ projects, skills, experience, category }) {
   return (
     <>
       <Head>
-        <title>Bechera's Portfolio Home</title>
+        <title>Home</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Container>

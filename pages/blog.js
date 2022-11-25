@@ -45,7 +45,8 @@ export default function Index({
   return (
     <>
       <Head>
-        <title>Bechera's Portfolio Blog</title>
+        <title> Blog</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Text style={"Heading"}>

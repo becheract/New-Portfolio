@@ -8,7 +8,8 @@ export default function about() {
   return (
     <>
       <Head>
-        <title>Bechera's Portfolio About</title>
+        <title>About Me</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="flex flex-col sm:flex-row-reverse p-3 h-screen w-screen ">
