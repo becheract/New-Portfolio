@@ -11,7 +11,7 @@ export default function about() {
         <title>Bechera's Portfolio About</title>
       </Head>
 
-      <div className="flex flex-col sm:flex-row-reverse p-3 h-100 w-screen ">
+      <div className="flex flex-col sm:flex-row-reverse p-3 h-screen w-screen ">
         <div className="sm:w-1/4 p-5 h-50 rounded flex flex-col justify-center sm:justify-start items-center ">
           <Text style="Heading">
             <p className="sm:invisible">
@@ -26,54 +26,9 @@ export default function about() {
               Resume
             </button>
           </a>
-
-          {/* <ul className=" flex flex-row m-0 h-[200px] w-screen p-5 justify-center  relative translate-x-0 translate-y-0 animate-infinite ">
-          <li className="text-9xl  w-50 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            👨🏾‍💻
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🥾
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            📷
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            📺
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🛹
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🍃
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🌲
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🧶
-          </li>
-          <li className="text-9xl w-100  p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            ⛰
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🚵🏽
-          </li>
-          <li className="text-9xl w-100  p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🧗🏽
-          </li>
-          <li className="text-9xl w-100  p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🏕
-          </li>
-          <li className="text-9xl w-100  p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🏞
-          </li>
-          <li className="text-9xl w-100 p-5  relative translate-x-0 translate-y-0 animate-infinite">
-            🎮
-          </li>
-        </ul> */}
         </div>
 
-        <div className="p-5 sm:w-3/4 flex flex-col gap-y-6 ">
+        <div className="p-5 sm:w-3/4 flex flex-col gap-y-6 h-full ">
           <div>
             <Text style="Heading">
               <p className="invisible sm:visible mb-5">
@@ -138,8 +93,13 @@ export default function about() {
             <Text>Im working towards a amazon solutions architect</Text>
           </div>
         </div>
+        <div className="sm:hidden">
+          <Footer></Footer>
+        </div>
       </div>
-      <Footer></Footer>
+      <div className="sm:block hidden">
+        <Footer></Footer>
+      </div>
     </>
   );
 }

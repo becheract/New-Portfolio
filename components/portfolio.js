@@ -33,7 +33,7 @@ export default function Portfolio({
           <PortfolioImage image={project_image} title={title} />
         </div>
 
-        <div className="w-full flex flex-col gap-y-3 mt-1 p-2">
+        <div className="w-full flex flex-col gap-y-1 mt-1 p-2">
           <Text style="Project">{title}</Text>
           <div className={"flex flex-row w-full "}>
             {skillsList.map((skill, index) => {
