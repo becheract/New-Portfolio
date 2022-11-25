@@ -13,7 +13,7 @@ export default function Portfolio({
   const [text, setText] = useState();
   const [skillsList] = useState(skills);
   useEffect(() => {
-    content.forEach((textBlock) => {
+    content.map((textBlock) => {
       setText(textBlock.children[0].text);
     });
   });

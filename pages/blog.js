@@ -23,7 +23,7 @@ export default function Index({
     enabled: preview,
   });
 
-  const [hero, ...morePosts] = allPosts || [];
+  const [...morePosts] = allPosts || [];
   const [filter, setFilter] = useState("All");
   const [years, setYears] = useState([]);
 

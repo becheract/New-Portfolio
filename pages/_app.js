@@ -1,11 +1,21 @@
 import "../styles/index.css";
 import "../styles/about.css";
-import Footer from "../components/footer";
 import Nav from "../components/nav";
+import "../styles/nprogress.css";
 import { ThemeProvider } from "next-themes";
+import { useRouter } from "next/router";
 
+import { useEffect } from "react";
+import NProgress from "nprogress";
 function MyApp({ Component, pageProps }) {
-  //init theme check
+  const router = useRouter();
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => NProgress.start());
+
+    router.events.on("routeChangeComplete", () => NProgress.done());
+    router.events.on("routeChangeError", () => NProgress.done());
+  }, []);
 
   return (
     <ThemeProvider>

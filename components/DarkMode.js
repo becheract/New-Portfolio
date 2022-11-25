@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 export default function DarkMode() {
   const [icon, setIcon] = useState("🌞");
   const [toggle, setToggle] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   useEffect(() => {
     switch (icon) {
       case "🌞":

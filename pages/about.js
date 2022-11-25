@@ -17,7 +17,7 @@ export default function about() {
             <Image src={Picture} alt="Bechera Chapman-Tremblay" />
           </div>
           <a href="./public/favicon/Resume-PDF (1).pdf" download>
-            <button className=" text-center bg-green-site  color-white font-bold shadow-sm mt-10 tracking-wider text-white shadow-green-site rounded-lg w-24 h-10">
+            <button className="transition duration-500 hover:scale-110 text-center bg-green-site  color-white font-bold shadow-sm mt-10 tracking-wider text-white shadow-green-site rounded-lg w-24 h-10">
               Resume
             </button>
           </a>

@@ -13,12 +13,14 @@ import {
 import { previewClient } from "../lib/sanity.server";
 import SkillSection from "../components/skillSection";
 import Experience from "../components/Experience";
-
 import GitHub from "../assets/git.png";
 import Linkedin from "../assets/linkedin.png";
 import Stack from "../assets/stack.png";
 import Twitter from "../assets/twitter.png";
 import Footer from "../components/footer";
+import Picture from "../public/favicon/bech.png";
+import Image from "next/image";
+
 export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
 
@@ -31,32 +33,43 @@ export default function Index({ projects, skills, experience, category }) {
       </Head>
 
       <Container>
-        <div className="flex flex-col gap-y-6 justify-start">
-          <Text style="Heading">
-            Hi
-            <span
-              className="animate-waving-hand w-fit mx-0 absolute "
-              id="wave"
-            >
-              👋🏽
-            </span>
-            <br />
-            Welcome To <br /> My
-            <span className=" text-green-site"> Portfolio Site </span>
-          </Text>
+        <div className="flex flex-col sm:flex-row gap-y-6  justify-start w-94 ">
+          <div className="flex flex-col gap-y-3  sm:w-1/2 w-full">
+            <Text style="Heading">
+              Hi
+              <span
+                className="animate-waving-hand w-fit mx-0 absolute "
+                id="wave"
+              >
+                👋🏽
+              </span>
+              <br />
+              Welcome To <br /> My
+              <span className=" text-green-site"> Portfolio Site </span>
+            </Text>
 
-          <Text style="Body">Full-Stack Web developer Based In Canada.</Text>
-          <div className="flex flex-row md:gap-x-16 gap-x-10 mt-3">
-            {socialLinks.map((images) => {
-              return (
-                <img
-                  src={images.src}
-                  alt={uuid()}
-                  className="w-[2rem] transform cursor-pointer transition duration-500 hover:scale-110"
-                  key={uuid()}
-                />
-              );
-            })}
+            <Text style="Body">Full-Stack Web developer Based In Canada.</Text>
+            <div className="flex flex-row md:gap-x-16 gap-x-10 mt-3">
+              {socialLinks.map((images) => {
+                return (
+                  <img
+                    src={images.src}
+                    alt={uuid()}
+                    className="w-[2rem] transform cursor-pointer transition duration-500 hover:scale-110"
+                    key={uuid()}
+                  />
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="md:block text-center hidden w-1/2 ">
+            <Image
+              src={Picture}
+              alt="Bechera Chapman-Tremblay"
+              width="280"
+              height="280"
+            />
           </div>
         </div>
       </Container>

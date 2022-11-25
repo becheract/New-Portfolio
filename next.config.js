@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+module.exports = withBundleAnalyzer({
   images: {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -8,4 +13,4 @@ module.exports = {
       { hostname: "source.unsplash.com" },
     ],
   },
-};
+});
