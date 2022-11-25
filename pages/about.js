@@ -1,5 +1,5 @@
 import React from "react";
-import Picture from "../public/favicon/bechera.png";
+import Picture from "../public/images/bechera.png";
 import Image from "next/image";
 import Text from "../components/Text";
 import Footer from "../components/footer";

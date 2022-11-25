@@ -17,7 +17,7 @@ export default function Portfolio({
       setText(textBlock.children[0].text);
     });
   });
-  console.log(content);
+
   return (
     <a
       href={github}

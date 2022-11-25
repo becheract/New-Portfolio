@@ -87,7 +87,6 @@ export default function Index({
             <>
               {filter === "All"
                 ? allPosts.map((post) => {
-                    console.log(post);
                     if (post.date.substring(0, 4) == year) {
                       return (
                         <>

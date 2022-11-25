@@ -18,7 +18,7 @@ import Linkedin from "../assets/linkedin.png";
 import Stack from "../assets/stack.png";
 import Twitter from "../assets/twitter.png";
 import Footer from "../components/footer";
-import Picture from "../public/favicon/bech.png";
+import Picture from "../public/images/bech.png";
 import Image from "next/image";
 
 export default function Index({ projects, skills, experience, category }) {
