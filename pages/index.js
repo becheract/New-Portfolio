@@ -64,14 +64,14 @@ export default function Index({ projects, skills, experience, category }) {
             </div>
           </div>
 
-          <div className="md:block text-center hidden w-1/2 ">
+          {/* <div className="md:block text-center hidden w-1/2 ">
             <Image
               src={Picture}
               alt="Bechera Chapman-Tremblay"
               width="280"
               height="280"
             />
-          </div>
+          </div> */}
         </div>
       </Container>
 
