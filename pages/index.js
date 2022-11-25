@@ -137,7 +137,6 @@ export default function Index({ projects, skills, experience, category }) {
             skills.map((skill) => {
               return <SkillSection key={uuid()} skill={skill} />;
             })}
-          ;
         </div>
       </Container>
 
