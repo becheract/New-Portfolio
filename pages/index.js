@@ -99,7 +99,6 @@ export default function Index({ projects, skills, experience, category }) {
               </>
             );
           })}
-          ;
         </div>
 
         <div className="flex flex-col flex-wrap md:flex-row">
@@ -128,7 +127,6 @@ export default function Index({ projects, skills, experience, category }) {
                   />
                 ) : null;
               })}
-          ;
         </div>
       </Container>
 
@@ -153,7 +151,6 @@ export default function Index({ projects, skills, experience, category }) {
                 </div>
               );
             })}
-          ;
         </div>
         <Footer></Footer>
       </Container>
