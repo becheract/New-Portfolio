@@ -35,18 +35,7 @@ export default function about() {
                 About <span className="text-green-site "> Me</span>🤔
               </p>
             </Text>
-            <Text style="Text">
-              Energetic and Solution-driven Web Developer adept at contributing
-              to highly collaborative work environment, finding solutions and
-              determining customer satisfaction. Proven experience developing
-              web applications from the ground up: information gathering,
-              planning, design, development, testing, delivery, and maintenance.
-              Passionate towards software architecture and design combined with
-              sensitivity to serving the needs of the business balanced with the
-              delivery of high quality solutions. seeking a career in
-              Information Technology with a special interest in web design and
-              development.
-            </Text>
+
             <Text style="Text">
               Ever since I was enrolled in a coding boot camp at 14 years old, I
               have not been able to stop making websites. Since then I knew
@@ -60,10 +49,7 @@ export default function about() {
             <Text style="Heading">What Am I Doing Now?🏡</Text>
             <Text>
               I currently am working as a front-end web developer for {""}
-              <a
-                className="cursor-pointer text-green-site underline"
-                href="https://steamlabs.ca/"
-              >
+              <a className="cursor-pointer" href="https://steamlabs.ca/">
                 Steamlabs.
               </a>
             </Text>
@@ -90,7 +76,10 @@ export default function about() {
 
           <div>
             <Text style="Heading">What Skills Am I Working Towards?🏃🏾</Text>
-            <Text>Im working towards a amazon solutions architect</Text>
+            <Text>
+              Im working towards a amazon solutions architect, freelancing and
+              volunteering.
+            </Text>
           </div>
         </div>
         <div className="sm:hidden">
