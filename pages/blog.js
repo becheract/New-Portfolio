@@ -41,7 +41,6 @@ export default function Index({
     setYears(years);
   }, []);
 
-  console.log(years);
   return (
     <>
       <Text style={"Heading"}>
@@ -86,7 +85,6 @@ export default function Index({
                     if (post.date.substring(0, 4) == year) {
                       return (
                         <>
-                          <h1>{year}</h1>
                           <BlogPost
                             title={post.title}
                             coverImage={post.coverImage}
