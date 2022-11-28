@@ -1,6 +1,7 @@
 import PortfolioImage from "../components/portfolioImage";
 import { useState, useEffect } from "react";
 import SkillsImage from "../components/skillsImage";
+import { v4 as uuid_v4 } from "uuid";
 import Text from "../components/Text";
 export default function Portfolio({
   title,
@@ -36,10 +37,11 @@ export default function Portfolio({
         <div className="w-full flex flex-col gap-y-1 mt-1 p-2">
           <Text style="Project">{title}</Text>
           <div className={"flex flex-row w-full "}>
-            {skillsList.map((skill, index) => {
+            {skillsList.map((skill) => {
               return (
-                <div className="w-6 m-3">
-                  <SkillsImage image={skill.picture} key={index} />
+                <div className="w-fit flex flex-row items-center justify-center m-3 gap-x-3">
+                  <SkillsImage image={skill.picture} key={uuid_v4()} />
+                  {skill.name}
                 </div>
               );
             })}
