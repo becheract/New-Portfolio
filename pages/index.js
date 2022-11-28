@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Container from "../components/container";
 import Portfolio from "../components/portfolio";
-import { uuid } from "uuidv4";
+import { v4 as uuid_v4 } from "uuid";
 import Text from "../components/Text";
 import { useState } from "react";
 import {
@@ -34,8 +34,8 @@ export default function Index({ projects, skills, experience, category }) {
       </Head>
 
       <Container>
-        <div className="flex flex-col sm:flex-row gap-y-6  justify-start w-94 ">
-          <div className="flex flex-col gap-y-3  sm:w-1/2 w-full">
+        <div className="flex flex-col sm:flex-row gap-y-6 gap-x-72 relative   justify-start w-94 ">
+          <div className="flex flex-col gap-y-3  sm:w-1/2 w-full ">
             <Text style="Heading">
               Hi
               <span
@@ -50,28 +50,28 @@ export default function Index({ projects, skills, experience, category }) {
             </Text>
 
             <Text style="Body">Full-Stack Web developer Based In Canada.</Text>
-            <div className="flex flex-row md:gap-x-16 gap-x-10 mt-3">
+            <div className="flex flex-row md:gap-x-16 gap-x-10 mt-3 ">
               {socialLinks.map((images) => {
                 return (
                   <img
                     src={images.src}
-                    alt={uuid()}
+                    alt={uuid_v4()}
                     className="w-[2rem] transform cursor-pointer transition duration-500 hover:scale-110"
-                    key={uuid()}
+                    key={uuid_v4()}
                   />
                 );
               })}
             </div>
           </div>
 
-          {/* <div className="md:block text-center hidden w-1/2 ">
+          <div className="md:flex right-28 hidden w-fit h-fit overflow-hidden absolute border-[1px] border-black-500 rounded-full">
             <Image
               src={Picture}
               alt="Bechera Chapman-Tremblay"
               width="280"
               height="280"
             />
-          </div> */}
+          </div>
         </div>
       </Container>
 
@@ -91,7 +91,7 @@ export default function Index({ projects, skills, experience, category }) {
             return (
               <>
                 <button
-                  key={uuid()}
+                  key={uuid_v4()}
                   className="font-bold text-xl transform transition duration-500 hover:scale-110"
                   onClick={() => setFilter(category.name)}
                 >
@@ -107,7 +107,7 @@ export default function Index({ projects, skills, experience, category }) {
             ? allProjects.map((project) => {
                 return (
                   <Portfolio
-                    key={uuid()}
+                    key={uuid_v4()}
                     title={project.title}
                     content={project.content}
                     project_image={project.project_image}
@@ -119,7 +119,7 @@ export default function Index({ projects, skills, experience, category }) {
             : allProjects.map((project) => {
                 return filter === project.category[0].name ? (
                   <Portfolio
-                    key={uuid()}
+                    key={uuid_v4()}
                     title={project.title}
                     content={project.content}
                     project_image={project.project_image}
@@ -136,7 +136,7 @@ export default function Index({ projects, skills, experience, category }) {
         <div className="flex flex-row flex-wrap justify-evenly h-full w-100 mb-6 p-1 gap-3">
           {skills.length > 0 &&
             skills.map((skill) => {
-              return <SkillSection key={uuid()} skill={skill} />;
+              return <SkillSection key={uuid_v4()} skill={skill} />;
             })}
         </div>
       </Container>
@@ -147,7 +147,7 @@ export default function Index({ projects, skills, experience, category }) {
             experience.map((exp) => {
               return (
                 <div className="flex  ">
-                  <Experience exp={exp} index={uuid()} />
+                  <Experience exp={exp} index={uuid_v4()} />
                 </div>
               );
             })}

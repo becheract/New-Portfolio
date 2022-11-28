@@ -7,10 +7,11 @@ export default function nav() {
     <div className="flex flex-row ">
       <ul className="flex flex-row items-center justify-start gap-x-7 p-5 float-left ">
         <Link href="/">
-          <h4 className="cursor-pointer not-italic font-bold text-[1.5rem] text-green-site font-Inter transform transition duration-500 hover:scale-110">
-            Bechera 🖥️
+          <h4 className="flex cursor-pointer not-italic font-bold text-[1.5rem] text-green-site font-Inter transform transition duration-500 hover:scale-110">
+            <span className="hidden sm:block">Bechera </span>🖥️
           </h4>
         </Link>
+
         <Link href="/about">
           <a className="transform transition duration-500 hover:scale-110">
             About
@@ -20,6 +21,12 @@ export default function nav() {
         <Link href="/blog">
           <a className="transform transition duration-500 hover:scale-110">
             Blog
+          </a>
+        </Link>
+
+        <Link href="/hobbies">
+          <a className="transform transition duration-500 hover:scale-110">
+            Hobbies
           </a>
         </Link>
 

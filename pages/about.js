@@ -14,12 +14,7 @@ export default function about() {
 
       <div className="flex flex-col sm:flex-row-reverse p-3 h-screen w-screen ">
         <div className="sm:w-1/4 p-5 h-50 rounded flex flex-col justify-center sm:justify-start items-center ">
-          <Text style="Heading">
-            <p className="sm:invisible">
-              About <span className="text-green-site "> Me</span>🤔
-            </p>
-          </Text>
-          <div className="flex justify-center  flex-col  w-60 ">
+          <div className="flex justify-center flex-col  w-60 border-[0.5px] border-black-500 rounded-full overflow-hidden">
             <Image src={Picture} alt="Bechera Chapman-Tremblay" />
           </div>
           <a href="./public/favicon/Resume-PDF (1).pdf" download>
@@ -32,7 +27,7 @@ export default function about() {
         <div className="p-5 sm:w-3/4 flex flex-col gap-y-6 h-full ">
           <div>
             <Text style="Heading">
-              <p className="invisible sm:visible mb-5">
+              <p className=" mb-5">
                 About <span className="text-green-site "> Me</span>🤔
               </p>
             </Text>
@@ -67,19 +62,19 @@ export default function about() {
                 My favourite games our The Elder Scrolls 5: Skyrim, Fallout 3,
                 and League of Legends (mastery level 7 draven).
               </li>
-              <li>I'm love clothing.</li>
+              <li>I love clothing and shoes.</li>
               <li>
-                I have a diploma in Internet Applications and web development.
+                I have a diploma in Internet Applications and Web Development.
               </li>
               <li>I'm from Canada.</li>
+              <li>I love photography.</li>
             </ul>
           </div>
 
           <div>
             <Text style="Heading">What Skills Am I Working Towards?🏃🏾</Text>
             <Text>
-              Im working towards a amazon solutions architect, freelancing and
-              volunteering.
+              Im working towards a amazon solutions architect certificate.
             </Text>
           </div>
         </div>

@@ -1,6 +1,6 @@
 export default {
-  name: "gallery",
-  title: "Gallery",
+  name: "hobbies",
+  title: "Hobbies",
   type: "document",
   fields: [
     {
@@ -14,11 +14,22 @@ export default {
       title: "Placeholder",
       type: "image",
     },
-
+    {
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [{ type: "reference", to: { type: "images" } }],
+    },
     {
       name: "date",
       title: "Date",
       type: "datetime",
+    },
+    {
+      name: "hobbycategory",
+      title: "Hobby Category",
+      type: "array",
+      of: [{ type: "reference", to: { type: "hobbycategory" } }],
     },
   ],
 };
