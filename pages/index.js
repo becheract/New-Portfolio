@@ -20,6 +20,7 @@ import Twitter from "../assets/twitter.png";
 import Footer from "../components/footer";
 import Picture from "../public/images/bech.png";
 import Image from "next/image";
+import Fade from "react-reveal/Fade";
 
 export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
@@ -34,17 +35,13 @@ export default function Index({ projects, skills, experience, category }) {
       </Head>
 
       <Container>
-        <div className="flex flex-col sm:flex-row gap-y-6 gap-x-72 relative   justify-start w-94 ">
-          <div className="flex flex-col gap-y-3  sm:w-1/2 w-full ">
+        <div className="flex flex-col sm:flex-row gap-y-6 gap-x-72 relative justify-start w-94 ">
+          <div className="flex flex-col gap-y-3 sm:w-1/2 w-full ">
             <Text style="Heading">
               Hi
-              <span
-                className="animate-waving-hand w-fit mx-0 absolute "
-                id="wave"
-              >
-                👋🏽
+              <span className="animate-waving-hand w-fit mx-0 " id="wave">
+                👋🏽,
               </span>
-              <br />
               Welcome To <br /> My
               <span className=" text-green-site"> Portfolio Site </span>
             </Text>
@@ -102,7 +99,7 @@ export default function Index({ projects, skills, experience, category }) {
           })}
         </div>
 
-        <div className="flex flex-col flex-wrap md:flex-row">
+        <div className="flex flex-col flex-wrap md:flex-row w-full">
           {filter === "All"
             ? allProjects.map((project) => {
                 return (

@@ -17,7 +17,7 @@ export default function PortfolioImage({ title, image: source }) {
         height={2000}
         alt={`Cover Image for ${title}`}
         src={urlForImage(source).height(2000).width(2300).url()}
-        className="rounded-[15px] absolute right-4"
+        className="rounded-[25px] h-full w-full border-[0.5px] border-red-500"
       />
     </div>
   ) : (
