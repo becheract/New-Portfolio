@@ -20,7 +20,7 @@ export default function Portfolio({
   });
 
   return (
-    <a className="p-5 w-full lg:w-1/3 md:w-1/2 flex justify-center mx-auto border-[0.5px] border-black-500">
+    <a className="p-5 w-full lg:w-1/3 md:w-1/2 flex justify-center mx-auto ">
       <div
         key={index}
         className={
@@ -34,7 +34,7 @@ export default function Portfolio({
               return (
                 <div className="w-fit flex flex-row items-center justify-center m-3 gap-x-3">
                   <SkillsImage image={skill.picture} key={uuid_v4()} />
-                  {skill.name}
+                  <h2 className="md:hidden">{skill.name}</h2>
                 </div>
               );
             })}

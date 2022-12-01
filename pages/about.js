@@ -17,7 +17,7 @@ export default function about() {
           <div className="flex justify-center flex-col  w-60 border-[0.5px] border-black-500 rounded-full overflow-hidden">
             <Image src={Picture} alt="Bechera Chapman-Tremblay" />
           </div>
-          <a href="./public/favicon/Resume-PDF (1).pdf" download>
+          <a href="./public/images/new_tech_resume.pdf" download>
             <button className="transition duration-500 hover:scale-110 text-center bg-green-site  color-white font-bold shadow-sm mt-10 tracking-wider text-white shadow-green-site rounded-lg w-24 h-10">
               Resume
             </button>
