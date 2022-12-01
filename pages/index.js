@@ -20,7 +20,6 @@ import Twitter from "../assets/twitter.png";
 import Footer from "../components/footer";
 import Picture from "../public/images/bech.png";
 import Image from "next/image";
-import Fade from "react-reveal/Fade";
 
 export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
