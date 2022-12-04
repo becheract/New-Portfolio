@@ -11,6 +11,9 @@ export default function Text(type) {
       case "Body":
         setTextStyles("text-[1rem] font-bold");
         break;
+      case "description":
+        setTextStyles("text-[1rem] ");
+        break;
       case "Project":
         setTextStyles("text-[1.5rem]");
         break;

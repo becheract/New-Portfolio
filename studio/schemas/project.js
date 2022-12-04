@@ -22,7 +22,12 @@ export default {
       type: "array",
       of: [{ type: "reference", to: { type: "skill" } }],
     },
-
+    {
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [{ type: "reference", to: { type: "imageproject" } }],
+    },
     {
       name: "category",
       title: "Category",

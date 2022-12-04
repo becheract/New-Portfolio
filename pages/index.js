@@ -26,6 +26,7 @@ export default function Index({ projects, skills, experience, category }) {
 
   const [allProjects] = useState(projects);
   const [socialLinks] = useState([GitHub, Linkedin, Stack, Twitter]);
+  console.log(allProjects);
   return (
     <>
       <Head>

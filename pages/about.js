@@ -25,56 +25,70 @@ export default function about() {
         </div>
 
         <div className="p-5 sm:w-3/4 flex flex-col gap-y-6 h-full ">
-          <div>
+          <div className="flex flex-col gap-y-6 ">
             <Text style="Heading">
               <p className=" mb-5">
                 About <span className="text-green-site "> Me</span>🤔
               </p>
             </Text>
 
-            <Text style="Text">
-              Ever since I was enrolled in a coding boot camp at 14 years old, I
-              have not been able to stop making websites. Since then I knew
-              coding was my passion. I graduated Fanshawe's college internet
-              application and web development program. I love React, web design,
-              and backend.
+            <Text style="description">
+              Hi, first of all, thank you for checking out my website, I really
+              appreciate it.
+            </Text>
+            <Text style="description">
+              My name is Bechera, and I'm a full-stack web developer based in
+              Canada. my love for coding first took shape in the form of video
+              games, I was interested in the design process of games, like level
+              design, and how they were created. My parents then pushed me
+              towards learning how to make video games. I used game engines like
+              unity, unreal engine, and game Maker studio. I was then enrolled
+              in multiple coding boot camps where I learned Java, HTML, CSS and
+              Javascript.
+            </Text>
+            <Text style="description">
+              I really found a passion in the design process of creating
+              websites, as I found myself being compelled to try and make a
+              website look as good as possible and also admiring other websites'
+              designs. I then proceeded to take coding and computer classes
+              throughout high school and then continued with coding in college
+              where I enrolled in the Internet Applications and Web Development
+              course and learned about CMS, configuring web servers, Linux,
+              mobile applications and game development, and graphic design.
             </Text>
           </div>
 
-          <div>
+          <div className="flex flex-col gap-y-3 ">
+            <Text style="Heading">
+              Skills that I'm currently working towards
+            </Text>
+            <Text>
+              Im working towards getting an aws amazon solutions architect
+              certificate in order to get a better understanding of the cloud.
+            </Text>
+
+            <Text>
+              I'm trying to improve my web design and graphic design skills.
+            </Text>
+
+            <Text>
+              Working towards impropving my writing skills, thats why I made a
+              blog so I can write about concepts and errors that I encounter
+              while working my full-time job.
+            </Text>
+          </div>
+
+          <div className="flex flex-col gap-y-3">
             <Text style="Heading">What Am I Doing Now?🏡</Text>
             <Text>
-              I currently am working as a front-end web developer for {""}
-              <a className="cursor-pointer" href="https://steamlabs.ca/">
-                Steamlabs.
-              </a>
+              I'm currently working as a front-end web developer at Steamlabs, a
+              non-profit organization that specializes in teaching AI and
+              machine learning to a variety of people.
             </Text>
-          </div>
 
-          <div>
-            <Text style="Heading">Fun Facts🌠</Text>
-            <ul className="list-disc list-inside">
-              <li>My favourite movie is 21 jumpstreet.</li>
-              <li>I'm allergic to all nuts.</li>
-              <li>I'm into tufting rugs.</li>
-              <li>I love nature.</li>
-              <li>
-                My favourite games our The Elder Scrolls 5: Skyrim, Fallout 3,
-                and League of Legends (mastery level 7 draven).
-              </li>
-              <li>I love clothing and shoes.</li>
-              <li>
-                I have a diploma in Internet Applications and Web Development.
-              </li>
-              <li>I'm from Canada.</li>
-              <li>I love photography.</li>
-            </ul>
-          </div>
-
-          <div>
-            <Text style="Heading">What Skills Am I Working Towards?🏃🏾</Text>
             <Text>
-              Im working towards a amazon solutions architect certificate.
+              In my spare time I'm also freelancing as a web developer wether
+              that be front-end or back-end.
             </Text>
           </div>
         </div>

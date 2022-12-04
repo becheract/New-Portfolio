@@ -15,6 +15,7 @@ import hobbycategory from "./hobbyCategory";
 import category from "./category";
 import BlogCategory from "./blogCategory";
 import Images from "./images";
+import ImageProject from "./imageProject";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -31,6 +32,7 @@ export default createSchema({
     category,
     BlogCategory,
     Images,
+    ImageProject,
     hobbycategory,
   ]),
 });

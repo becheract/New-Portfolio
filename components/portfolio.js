@@ -41,9 +41,15 @@ export default function Portfolio({
           </div>
           <Text style="Text">{text}</Text>
 
-          <button className="text-white font-bold transform p-2 m-5  w-1/2 bg-green-site rounded-[25px] transition duration-300 hover:scale-110 ">
-            <a href={github}>View</a>
-          </button>
+          <div className="flex flex-row justify-center align-center w-full m-3">
+            <button className="text-white font-bold transform p-2 m-2 w-1/2 bg-green-site rounded-[25px] transition duration-300 hover:scale-110 ">
+              <a href={github}>Code</a>
+            </button>
+
+            <button className="text-white font-bold transform p-2 m-2  w-1/2 bg-green-site rounded-[25px] transition duration-300 hover:scale-110 ">
+              <a href={github}>View</a>
+            </button>
+          </div>
         </div>
       </div>
     </a>
