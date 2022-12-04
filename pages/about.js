@@ -12,13 +12,13 @@ export default function about() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex flex-col sm:flex-row-reverse p-3 h-screen w-screen ">
+      <div className="flex flex-col sm:flex-row-reverse p-3 h-fit w-screen ">
         <div className="sm:w-1/4 p-5 h-50 rounded flex flex-col justify-center sm:justify-start items-center ">
           <div className="flex justify-center flex-col  w-60 border-[0.5px] border-black-500 rounded-full overflow-hidden">
             <Image src={Picture} alt="Bechera Chapman-Tremblay" />
           </div>
           <a href="./public/images/new_tech_resume.pdf" download>
-            <button className="transition duration-500 hover:scale-110 text-center bg-green-site  color-white font-bold shadow-sm mt-10 tracking-wider text-white shadow-green-site rounded-lg w-24 h-10">
+            <button className="transition duration-300 hover:scale-110 text-center bg-green-site  color-white font-bold  mt-10 tracking-wider text-white shadow-green-site rounded-lg w-24 h-10">
               Resume
             </button>
           </a>
@@ -78,13 +78,9 @@ export default function about() {
             </Text>
           </div>
         </div>
-        <div className="sm:hidden">
-          <Footer></Footer>
-        </div>
       </div>
-      <div className="sm:block hidden">
-        <Footer></Footer>
-      </div>
+
+      <Footer></Footer>
     </>
   );
 }

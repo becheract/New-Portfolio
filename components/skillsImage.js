@@ -5,9 +5,9 @@ export default function SkillsImage({ image: source }) {
   const image = source?.asset?._ref ? (
     <Image
       layout="responsive"
-      width={20}
-      height={20}
-      src={urlForImage(source).height(20).width(20).url()}
+      width={30}
+      height={30}
+      src={urlForImage(source).height(30).width(30).url()}
       sizes="100vw"
       alt="skill"
     />
