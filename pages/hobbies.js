@@ -11,6 +11,7 @@ import Image from "next/image";
 import { urlForImage } from "../lib/sanity";
 import { usePreviewSubscription } from "../lib/sanity";
 export default function Index({ hobby }) {
+  console.log(hobby);
   const [allHobbies] = useState(hobby);
 
   console.log(allHobbies);

@@ -34,7 +34,6 @@ export default function Portfolio({
               return (
                 <div className="w-fit flex flex-row items-center justify-center m-3 gap-x-3">
                   <SkillsImage image={skill.picture} key={uuid_v4()} />
-                  <h2 className="md:block hidden">{skill.name}</h2>
                 </div>
               );
             })}
@@ -46,9 +45,9 @@ export default function Portfolio({
               <a href={github}>Code</a>
             </button>
 
-            <button className="text-white font-bold transform p-2 m-2  w-1/2 bg-green-site rounded-[25px] transition duration-300 hover:scale-110 ">
+            {/* <button className="text-white font-bold transform p-2 m-2  w-1/2 bg-green-site rounded-[25px] transition duration-300 hover:scale-110 ">
               <a href={github}>View</a>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
