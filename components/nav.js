@@ -30,9 +30,9 @@ export default function nav() {
           </a>
         </Link> */}
 
-        <div className="w-100 transform transition duration-500 hover:scale-110">
+        {/* <div className="w-100 transform transition duration-500 hover:scale-110">
           <DarkMode />
-        </div>
+        </div> */}
       </ul>
     </div>
   );
