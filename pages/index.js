@@ -23,9 +23,23 @@ import Image from "next/image";
 
 export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
-
+  const socials = [
+    {
+      picture: GitHub,
+      link: "https://github.com/becheract",
+    },
+    {
+      picture: Linkedin,
+      link: "https://www.linkedin.com/in/bechera-chapman-tremblay/",
+    },
+    {
+      picture: Stack,
+      link: "https://stackoverflow.com/users/16129990/bechera",
+    },
+  ];
   const [allProjects] = useState(projects);
-  const [socialLinks] = useState([GitHub, Linkedin, Stack, Twitter]);
+  const [socialLinks] = useState(socials);
+
   console.log(allProjects);
   return (
     <>
@@ -50,12 +64,14 @@ export default function Index({ projects, skills, experience, category }) {
             <div className="flex flex-row md:gap-x-16 gap-x-10 mt-3 ">
               {socialLinks.map((images) => {
                 return (
-                  <img
-                    src={images.src}
-                    alt={uuid_v4()}
-                    className="w-[2rem] transform cursor-pointer transition duration-200 hover:scale-110"
-                    key={uuid_v4()}
-                  />
+                  <a href={images.link}>
+                    <img
+                      src={images.picture.src}
+                      alt={uuid_v4()}
+                      className="w-[2rem] transform cursor-pointer transition duration-200 hover:scale-110"
+                      key={uuid_v4()}
+                    />
+                  </a>
                 );
               })}
             </div>
