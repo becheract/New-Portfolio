@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <ThemeProvider enableSystem={false} forcedTheme="light">
+      <ThemeProvider enableSystem={false}>
         <Head>
           <link rel="shortcut icon" href="/images/favicon.ico" />
           <link

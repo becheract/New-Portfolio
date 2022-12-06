@@ -40,7 +40,6 @@ export default function Index({ projects, skills, experience, category }) {
   const [allProjects] = useState(projects);
   const [socialLinks] = useState(socials);
 
-  console.log(allProjects);
   return (
     <>
       <Head>
