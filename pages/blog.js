@@ -7,8 +7,9 @@ import { getClient, overlayDrafts } from "../lib/sanity.server";
 import { useEffect, useState } from "react";
 import BlogPost from "../components/blogPost";
 import Footer from "../components/footer";
-import { uuid } from "uuidv4";
+import { v4 as uuid_v4 } from "uuid";
 import Head from "next/head";
+
 export default function Index({
   allPosts: initialAllPosts,
   preview,
@@ -61,18 +62,22 @@ export default function Index({
         </Text>
 
         <div className="">
-          <div className="flex flex-row justify-start gap-x-5 flex-wrap">
+          <div
+            key={uuid_v4()}
+            className="flex flex-row justify-start gap-x-5 flex-wrap"
+          >
             <button
               className="font-bold text-xl "
               onClick={() => setFilter("All")}
+              key={uuid_v4()}
             >
               All
             </button>
-            {allBlogCategories.map((category, index) => {
+            {allBlogCategories.map((category) => {
               return (
                 <button
                   className="font-bold text-xl"
-                  key={index}
+                  key={uuid_v4()}
                   onClick={() => setFilter(category.name)}
                 >
                   {category.name}
@@ -84,44 +89,42 @@ export default function Index({
 
         {years.map((year) => {
           return (
-            <>
+            <div key={uuid_v4()}>
               {filter === "All"
                 ? allPosts.map((post) => {
                     if (post.date.substring(0, 4) == year) {
                       return (
-                        <>
+                        <div key={uuid_v4()}>
                           <BlogPost
                             title={post.title}
                             coverImage={post.coverImage}
-                            key={uuid()}
                             date={post.date}
                             author={post.author}
                             slug={post.slug}
                             excerpt={post.excerpt}
                             blogCategory={post.blogCategory}
                           />
-                        </>
+                        </div>
                       );
                     }
                   })
                 : allPosts.map((post) => {
                     return filter === post.blogCategory[0].name &&
                       post.date.substring(0, 4) == year ? (
-                      <>
+                      <div key={uuid_v4()}>
                         <BlogPost
                           title={post.title}
                           coverImage={post.coverImage}
-                          key={uuid()}
                           date={post.date}
                           author={post.author}
                           slug={post.slug}
                           excerpt={post.excerpt}
                           blogCategory={post.blogCategory}
                         />
-                      </>
+                      </div>
                     ) : null;
                   })}
-            </>
+            </div>
           );
         })}
 

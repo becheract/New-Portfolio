@@ -1,20 +1,50 @@
 import Container from "../components/container";
+import MoreStories from "../components/more-stories";
 import Text from "../components/Text";
-import { hobbiesQuery } from "../lib/queries";
+import { hobbiesQuery, hobbyCategoryQuery } from "../lib/queries";
+import { usePreviewSubscription } from "../lib/sanity";
 import { getClient, overlayDrafts } from "../lib/sanity.server";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import HobbyPost from "../components/hobbyPost";
 import Footer from "../components/footer";
 import { v4 as uuid_v4 } from "uuid";
 import Head from "next/head";
-import { previewClient } from "../lib/sanity.server";
-import Image from "next/image";
-import { urlForImage } from "../lib/sanity";
-import { usePreviewSubscription } from "../lib/sanity";
-export default function Index({ hobby }) {
-  console.log(hobby);
-  const [allHobbies] = useState(hobby);
 
-  console.log(allHobbies);
+export default function Hobbies({
+  allPosts: initialAllPosts,
+  preview,
+  allHobbyCategories: categories,
+}) {
+  const { data: allHobbies } = usePreviewSubscription(hobbiesQuery, {
+    initialData: initialAllPosts,
+    enabled: preview,
+  });
+  const { data: allHobbyCategories } = usePreviewSubscription(
+    hobbyCategoryQuery,
+    {
+      initialData: categories,
+      enabled: preview,
+    }
+  );
+
+  const [...morePosts] = allHobbies || [];
+  const [filter, setFilter] = useState("All");
+  const [years, setYears] = useState([]);
+
+  useEffect(() => {
+    let years = [];
+    allHobbies.map((post) => {
+      let postYear = post.date.substring(0, 4);
+      let foundYear = years.includes(postYear);
+      if (foundYear == false) {
+        years.push(postYear);
+      } else {
+        return;
+      }
+    });
+    setYears(years);
+  }, []);
+
   return (
     <>
       <Head>
@@ -30,7 +60,7 @@ export default function Index({ hobby }) {
         <Text style={"Heading"}>
           {" "}
           My
-          <span className="text-green-site "> Hobbies</span> 🎨
+          <span className="text-green-site "> Hobbies</span> 📖
         </Text>
 
         <div className="">
@@ -41,46 +71,72 @@ export default function Index({ hobby }) {
             >
               All
             </button>
+            {allHobbyCategories.map((category) => {
+              return (
+                <button
+                  className="font-bold text-xl"
+                  key={uuid_v4()}
+                  onClick={() => setFilter(category.name)}
+                >
+                  {category.name}
+                </button>
+              );
+            })}
           </div>
         </div>
-        <div
-          key={uuid_v4()}
-          className="relative w-1/4 h-full text-center  text-white -z-1"
-        >
-          {/* {hobbies.map((album) => {
-            return (
-              <>
-                <div className="bg-black border-[0.5px] border-black-500 rounded w-100 h-100 ">
-                  <Image
-                    width={"300"}
-                    height={"170"}
-                    src={urlForImage(album.placeholder.asset._ref)
-                      .height(170)
-                      .width(300)
-                      .url()}
-                    alt={album.title}
-                  />
-                </div>
 
-                <span className="flex w-100 justify-center align-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  {album.title}
-                </span>
-              </>
-            );
-          })} */}
-        </div>
+        {years.map((year) => {
+          return (
+            <div key={uuid_v4()}>
+              {filter === "All"
+                ? allHobbies.map((post) => {
+                    if (post.date.substring(0, 4) == year) {
+                      return (
+                        <div key={uuid_v4()}>
+                          <HobbyPost
+                            title={post.title}
+                            date={post.date}
+                            coverImage={post.coverImage}
+                            // hobbyCategory={post.hobbyCategory.name}
+                            images={post.images}
+                            placeholder={post.placeholder}
+                          />
+                        </div>
+                      );
+                    }
+                  })
+                : allHobbies.map((post, index) => {
+                    return filter === post.hobbyCategory.name &&
+                      post.date.substring(0, 4) == year ? (
+                      <div key={uuid_v4()}>
+                        <HobbyPost
+                          title={post.title}
+                          date={post.date}
+                          coverImage={post.coverImage}
+                          // hobbyCategory={post.hobbyCategory[0].name}
+                          images={post.images}
+                          placeholder={post.placeholder}
+                        />
+                      </div>
+                    ) : null;
+                  })}
+            </div>
+          );
+        })}
       </Container>
       <Footer></Footer>
     </>
   );
 }
 
-export async function getStaticProps() {
-  const hobbies = await previewClient.fetch(hobbiesQuery);
-  console.log(hobbies);
+export async function getStaticProps({ preview = false }) {
+  const allPosts = overlayDrafts(await getClient(preview).fetch(hobbiesQuery));
+  const allHobbyCategories = overlayDrafts(
+    await getClient(preview).fetch(hobbyCategoryQuery)
+  );
   return {
-    props: {
-      hobbies,
-    },
+    props: { allPosts, preview, allHobbyCategories },
+    // If webhooks isn't setup then attempt to re-generate in 1 minute intervals
+    revalidate: process.env.SANITY_REVALIDATE_SECRET ? undefined : 60,
   };
 }

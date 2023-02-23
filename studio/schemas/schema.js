@@ -11,6 +11,7 @@ import project from "./project";
 import skill from "./skill";
 import experience from "./experience";
 import hobbies from "./hobbies";
+import newHobby from "./newHobby";
 import hobbycategory from "./hobbyCategory";
 import category from "./category";
 import BlogCategory from "./blogCategory";
@@ -34,5 +35,6 @@ export default createSchema({
     Images,
     ImageProject,
     hobbycategory,
+    newHobby,
   ]),
 });

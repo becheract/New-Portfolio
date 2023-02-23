@@ -1,3 +1,5 @@
+import Vercel from "../public/images/vercel.webp";
+import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="flex justify-center my-7 align-center">
@@ -14,14 +16,14 @@ export default function Footer() {
             ></img>
           </div>
 
-          <div className="flex flex-row">
+          <div className="flex flex-row  ">
             <p className="m-2">Vercel</p>
-            <img
-              className="w-6 h-auto m-2"
-              alt="Vercel"
-              id="image"
-              src="https://imgs.search.brave.com/lto-tDKPx-XmntZR6bPYwjHbI4Axo_yT2O-swNj0PjM/rs:fit:128:128:1/g:ce/aHR0cHM6Ly9sb2dv/LmNsZWFyYml0LmNv/bS92ZXJjZWwuY29t"
-            ></img>
+            <Image
+              src={Vercel}
+              alt="Bechera Chapman-Tremblay"
+              width="40"
+              height="20"
+            />
           </div>
 
           <div className="flex flex-row justify-center">

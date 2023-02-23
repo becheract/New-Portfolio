@@ -16,13 +16,16 @@ import Experience from "../components/Experience";
 import GitHub from "../assets/git.png";
 import Linkedin from "../assets/linkedin.png";
 import Stack from "../assets/stack.png";
-import Twitter from "../assets/twitter.png";
 import Footer from "../components/footer";
 import Picture from "../public/images/bech.png";
 import Image from "next/image";
 
+import { useTransition } from "react-spring";
+
 export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
+  const [isVisible, setIsVisible] = useState(false);
+  const transition = useTransition(isVisible, {});
   const socials = [
     {
       picture: GitHub,
