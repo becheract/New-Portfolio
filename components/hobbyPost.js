@@ -27,9 +27,8 @@ export default function HeroPost({
             <Date dateString={date} />
           </div>
         </div>
-        {/* <div>
+        <div>
           {hobbyCategory.map((category, index) => {
-            console.log(hobbyCategory);
             if (category === undefined || null) {
               return <></>;
             } else {
@@ -40,7 +39,7 @@ export default function HeroPost({
               );
             }
           })}
-        </div> */}
+        </div>
       </div>
     </section>
   );

@@ -28,7 +28,7 @@ export default function Index({
   const [...morePosts] = allPosts || [];
   const [filter, setFilter] = useState("All");
   const [years, setYears] = useState([]);
-
+  console.log(allPosts);
   useEffect(() => {
     let years = [];
     allPosts.map((post) => {

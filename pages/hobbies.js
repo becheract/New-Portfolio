@@ -9,7 +9,7 @@ import HobbyPost from "../components/hobbyPost";
 import Footer from "../components/footer";
 import { v4 as uuid_v4 } from "uuid";
 import Head from "next/head";
-
+import Image from "next/future/image";
 export default function Hobbies({
   allPosts: initialAllPosts,
   preview,
@@ -30,10 +30,22 @@ export default function Hobbies({
   const [...morePosts] = allHobbies || [];
   const [filter, setFilter] = useState("All");
   const [years, setYears] = useState([]);
-
+  const [modal, setModal] = useState(false);
+  const OpenImages = (Images) => {
+    console.log(Images);
+    switch (modal) {
+      case true:
+        setModal(false);
+        break;
+      case false:
+        setModal(true);
+        break;
+    }
+  };
+  console.log(initialAllPosts);
   useEffect(() => {
     let years = [];
-    allHobbies.map((post) => {
+    initialAllPosts.map((post) => {
       let postYear = post.date.substring(0, 4);
       let foundYear = years.includes(postYear);
       if (foundYear == false) {
@@ -84,20 +96,25 @@ export default function Hobbies({
             })}
           </div>
         </div>
+        {/*modal for image*/}
 
+        {/* {modal ? <>hi</> : <h1>off</h1>} */}
         {years.map((year) => {
           return (
             <div key={uuid_v4()}>
               {filter === "All"
-                ? allHobbies.map((post) => {
+                ? initialAllPosts.map((post) => {
                     if (post.date.substring(0, 4) == year) {
                       return (
-                        <div key={uuid_v4()}>
+                        <div
+                          key={uuid_v4()}
+                          onClick={() => OpenImages(post.images)}
+                        >
                           <HobbyPost
                             title={post.title}
                             date={post.date}
                             coverImage={post.coverImage}
-                            // hobbyCategory={post.hobbyCategory.name}
+                            hobbyCategory={post.hobbycategory}
                             images={post.images}
                             placeholder={post.placeholder}
                           />
@@ -105,15 +122,18 @@ export default function Hobbies({
                       );
                     }
                   })
-                : allHobbies.map((post, index) => {
-                    return filter === post.hobbyCategory.name &&
+                : initialAllPosts.map((post) => {
+                    return filter === post.hobbycategory[0].name &&
                       post.date.substring(0, 4) == year ? (
-                      <div key={uuid_v4()}>
+                      <div
+                        key={uuid_v4()}
+                        onClick={() => OpenImages(post.images)}
+                      >
                         <HobbyPost
                           title={post.title}
                           date={post.date}
                           coverImage={post.coverImage}
-                          // hobbyCategory={post.hobbyCategory[0].name}
+                          hobbyCategory={post.hobbycategory}
                           images={post.images}
                           placeholder={post.placeholder}
                         />

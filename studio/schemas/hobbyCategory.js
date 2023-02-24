@@ -1,5 +1,5 @@
 export default {
-  name: "hobbyCategory",
+  name: "hobbycategory",
   title: "Hobby Category",
   type: "document",
   fields: [
