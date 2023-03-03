@@ -1,5 +1,4 @@
 import Container from "../components/container";
-import MoreStories from "../components/more-stories";
 import Text from "../components/Text";
 import { hobbiesQuery, hobbyCategoryQuery } from "../lib/queries";
 import { usePreviewSubscription } from "../lib/sanity";
@@ -9,7 +8,7 @@ import HobbyPost from "../components/hobbyPost";
 import Footer from "../components/footer";
 import { v4 as uuid_v4 } from "uuid";
 import Head from "next/head";
-import Image from "next/future/image";
+import Skills from "../components/skills";
 export default function Hobbies({
   allPosts: initialAllPosts,
   preview,
@@ -31,17 +30,29 @@ export default function Hobbies({
   const [filter, setFilter] = useState("All");
   const [years, setYears] = useState([]);
   const [modal, setModal] = useState(false);
-  const OpenImages = (Images) => {
-    console.log(Images);
+  const [images, setImages] = useState([]);
+
+  const OpenImages = async (albumImages) => {
     switch (modal) {
       case true:
+        console.log("running");
+        albumImages.map((img) => {
+          console.log(img);
+          async () => {
+            console.log(img._ref);
+            const refdocument = await client.get(img._ref);
+            console.log(refdocument);
+          };
+        });
         setModal(false);
         break;
       case false:
         setModal(true);
+        setImages([]);
         break;
     }
   };
+
   console.log(initialAllPosts);
   useEffect(() => {
     let years = [];
@@ -98,7 +109,19 @@ export default function Hobbies({
         </div>
         {/*modal for image*/}
 
-        {/* {modal ? <>hi</> : <h1>off</h1>} */}
+        {!modal ? (
+          <>
+            <div>
+              <h1>off</h1>
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <h1>On</h1>
+            </div>
+          </>
+        )}
         {years.map((year) => {
           return (
             <div key={uuid_v4()}>

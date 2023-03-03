@@ -37,24 +37,35 @@ export default function about() {
               appreciate it.
             </Text>
             <Text style="description">
-              My name is Bechera, and I'm a full-stack web developer based in
-              Canada. my love for coding first took shape in the form of video
-              games, I was interested in the design process of games, like level
-              design, and how they were created. My parents then pushed me
-              towards learning how to make video games. I used game engines like
-              unity, unreal engine, and game Maker studio. I was then enrolled
-              in multiple coding boot camps where I learned Java, HTML, CSS and
-              Javascript.
+              Hello and welcome to my portfolio site! My name is Bechera, and I
+              am a full-stack web developer with a passion for coding and
+              teaching others. I've been coding since I was 14 years old, and I
+              have always loved the challenge and creativity that comes with
+              writing code. Throughout high school, I took coding classes that
+              helped me to build a strong foundation in various programming
+              languages. After high school, I pursued my passion for coding by
+              attending college to become a full-stack web developer. During my
+              time in college, I learned a variety of programming languages such
+              as Javascript, PHP, MySQL, and Linux, among others. I was able to
+              put my knowledge into practice through various coding projects and
+              internships, which further enhanced my skills and experience.
             </Text>
             <Text style="description">
-              I really found a passion in the design process of creating
-              websites, as I found myself being compelled to try and make a
-              website look as good as possible and also admiring other websites'
-              designs. I then proceeded to take coding and computer classes
-              throughout high school and then continued with coding in college
-              where I enrolled in the Internet Applications and Web Development
-              course and learned about CMS, configuring web servers, Linux,
-              mobile applications and game development, and graphic design.
+              Upon graduating from college, I landed a job as a lead developer
+              for a non-profit organization that specialized in teaching people
+              of all ages about AI and machine learning. Here, I was able to
+              work on exciting projects such as video games, microcontrollers,
+              and servers, among others. It was a fulfilling experience, and I
+              gained valuable insight into how technology can be used to impact
+              lives positively. Currently, I am working as a freelance WordPress
+              teacher for another organization, teaching at-risk youth how to
+              code. I find this work very rewarding as I get to make a positive
+              impact on the lives of young people while sharing my knowledge and
+              passion for coding. I am excited to continue to learn, grow, and
+              explore the world of coding, and I look forward to connecting with
+              like-minded individuals who share my passion. Thank you for
+              visiting my portfolio site, and I hope you find something that
+              sparks your interest.
             </Text>
           </div>
 
@@ -81,9 +92,10 @@ export default function about() {
           <div className="flex flex-col gap-y-3">
             <Text style="Heading">What Am I Doing Now?🏡</Text>
             <Text>
-              I'm currently working as a front-end web developer at Steamlabs, a
-              non-profit organization that specializes in teaching AI and
-              machine learning to a variety of people.
+              I'm currently working as a freelance wordpress teacher at
+              Code-Youth, they provide entry level coding training and the tools
+              necessary for youth to find meaningful entry level employment in
+              the IT sector.
             </Text>
 
             <Text>
