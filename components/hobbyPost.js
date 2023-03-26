@@ -49,22 +49,12 @@ export default function HeroPost({
     }
   };
 
-  const RenderDots = () => {
-    for (let i = 0; i < images.length; i++) {
-      return (
-        <div className="w-2 h-2">
-          <FontAwesomeIcon icon={faCircle} />
-        </div>
-      );
-    }
-  };
-
   //for gallery of images
   useEffect(() => {
+    console.log(images);
     images.map((photo) => {
       setGalleryImages((prevGallery) => [...prevGallery, photo]);
     });
-    console.log(`these are the images`);
   }, []);
 
   return (

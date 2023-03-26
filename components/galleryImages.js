@@ -22,7 +22,7 @@ export default function SkillsImage({ image: source }) {
   return (
     <>
       {loading && (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center mt-5 justify-center">
           <PuffLoader color="#0EBE2C" />
         </div>
       )}
