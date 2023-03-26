@@ -1,7 +1,7 @@
 import Image from "next/future/image";
 import { urlForImage } from "../lib/sanity";
 import { PulseLoader } from "react-spinners";
-
+import { useState } from "react";
 export default function SkillsImage({ image: source }) {
   const [loading, setLoading] = useState(true);
 
@@ -19,13 +19,14 @@ export default function SkillsImage({ image: source }) {
   ) : (
     <div style={{ paddingTop: "50%", backgroundColor: "#ddd" }} />
   );
-  {
-    loading ? (
-      <div className="flex justify-center items-center">
-        <PulseLoader color="#00BFFF" />
-      </div>
-    ) : (
+  return (
+    <>
+      {loading && (
+        <div>
+          <PulseLoader />
+        </div>
+      )}
       <div className="h-full w-100 object-contain p-3">{image}</div>
-    );
-  }
+    </>
+  );
 }
