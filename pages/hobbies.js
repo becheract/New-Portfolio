@@ -8,7 +8,7 @@ import HobbyPost from "../components/hobbyPost";
 import Footer from "../components/footer";
 import { v4 as uuid_v4 } from "uuid";
 import Head from "next/head";
-import Skills from "../components/skills";
+
 export default function Hobbies({
   allPosts: initialAllPosts,
   preview,
@@ -29,29 +29,6 @@ export default function Hobbies({
   const [...morePosts] = allHobbies || [];
   const [filter, setFilter] = useState("All");
   const [years, setYears] = useState([]);
-  const [modal, setModal] = useState(false);
-  const [images, setImages] = useState([]);
-
-  const OpenImages = async (albumImages) => {
-    switch (modal) {
-      case true:
-        console.log("running");
-        albumImages.map((img) => {
-          console.log(img);
-          async () => {
-            console.log(img._ref);
-            const refdocument = await client.get(img._ref);
-            console.log(refdocument);
-          };
-        });
-        setModal(false);
-        break;
-      case false:
-        setModal(true);
-        setImages([]);
-        break;
-    }
-  };
 
   console.log(initialAllPosts);
   useEffect(() => {
@@ -85,7 +62,7 @@ export default function Hobbies({
           My
           <span className="text-green-site "> Hobbies</span> 📖
         </Text>
-
+        {/*category filter*/}
         <div className="">
           <div className="flex flex-row justify-start gap-x-5 flex-wrap">
             <button
@@ -107,21 +84,7 @@ export default function Hobbies({
             })}
           </div>
         </div>
-        {/*modal for image*/}
 
-        {!modal ? (
-          <>
-            <div>
-              <h1>off</h1>
-            </div>
-          </>
-        ) : (
-          <>
-            <div>
-              <h1>On</h1>
-            </div>
-          </>
-        )}
         {years.map((year) => {
           return (
             <div key={uuid_v4()}>
@@ -129,16 +92,13 @@ export default function Hobbies({
                 ? initialAllPosts.map((post) => {
                     if (post.date.substring(0, 4) == year) {
                       return (
-                        <div
-                          key={uuid_v4()}
-                          onClick={() => OpenImages(post.images)}
-                        >
+                        <div key={uuid_v4()}>
                           <HobbyPost
                             title={post.title}
                             date={post.date}
                             coverImage={post.coverImage}
                             hobbyCategory={post.hobbycategory}
-                            images={post.images}
+                            images={post.gallery}
                             placeholder={post.placeholder}
                           />
                         </div>
@@ -148,16 +108,13 @@ export default function Hobbies({
                 : initialAllPosts.map((post) => {
                     return filter === post.hobbycategory[0].name &&
                       post.date.substring(0, 4) == year ? (
-                      <div
-                        key={uuid_v4()}
-                        onClick={() => OpenImages(post.images)}
-                      >
+                      <div key={uuid_v4()}>
                         <HobbyPost
                           title={post.title}
                           date={post.date}
                           coverImage={post.coverImage}
                           hobbyCategory={post.hobbycategory}
-                          images={post.images}
+                          images={post.gallery}
                           placeholder={post.placeholder}
                         />
                       </div>
@@ -174,6 +131,7 @@ export default function Hobbies({
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = overlayDrafts(await getClient(preview).fetch(hobbiesQuery));
+
   const allHobbyCategories = overlayDrafts(
     await getClient(preview).fetch(hobbyCategoryQuery)
   );

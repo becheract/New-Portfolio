@@ -11,12 +11,12 @@ import project from "./project";
 import skill from "./skill";
 import experience from "./experience";
 import hobbies from "./hobbies";
-import newHobby from "./newHobby";
 import hobbycategory from "./hobbyCategory";
 import category from "./category";
 import BlogCategory from "./blogCategory";
-import Images from "./images";
+import test from "./Gallery";
 import ImageProject from "./imageProject";
+// import test from "./test";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -32,9 +32,8 @@ export default createSchema({
     hobbies,
     category,
     BlogCategory,
-    Images,
     ImageProject,
     hobbycategory,
-    newHobby,
+    test,
   ]),
 });

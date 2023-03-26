@@ -14,12 +14,7 @@ export default {
       title: "Placeholder",
       type: "image",
     },
-    {
-      name: "images",
-      title: "Images",
-      type: "array",
-      of: [{ type: "reference", to: { type: "images" } }],
-    },
+
     {
       name: "date",
       title: "Date",
@@ -30,6 +25,12 @@ export default {
       title: "Hobby Category",
       type: "array",
       of: [{ type: "reference", to: { type: "hobbycategory" } }],
+    },
+    {
+      name: "gallery",
+      title: "Gallery",
+      type: "array",
+      of: [{ type: "reference", to: { type: "test" } }],
     },
   ],
 };

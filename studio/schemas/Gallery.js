@@ -1,6 +1,6 @@
 export default {
-  name: "images",
-  title: "Images",
+  name: "test",
+  title: "Test",
   type: "document",
   fields: [
     {
@@ -10,8 +10,8 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "picture",
-      title: "Picture",
+      name: "photo",
+      title: "Photo",
       type: "image",
       options: { hotspot: true },
       validation: (Rule) => Rule.required(),

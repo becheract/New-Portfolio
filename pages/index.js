@@ -51,7 +51,7 @@ export default function Index({ projects, skills, experience, category }) {
       </Head>
 
       <Container>
-        <div className="flex flex-col sm:flex-row gap-y-6 gap-x-72 relative justify-start w-94 ">
+        <div className="flex flex-col  sm:flex-row gap-y-6 gap-x-72 relative justify-start w-94 ">
           <div className="flex flex-col gap-y-3 sm:w-1/2 w-full ">
             <Text style="Heading">
               Hi
