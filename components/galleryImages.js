@@ -1,6 +1,6 @@
 import Image from "next/future/image";
 import { urlForImage } from "../lib/sanity";
-import { PulseLoader } from "react-spinners";
+import { PuffLoader } from "react-spinners";
 import { useState } from "react";
 export default function SkillsImage({ image: source }) {
   const [loading, setLoading] = useState(true);
@@ -22,8 +22,8 @@ export default function SkillsImage({ image: source }) {
   return (
     <>
       {loading && (
-        <div>
-          <PulseLoader />
+        <div className="flex items-center justify-center">
+          <PuffLoader color="#0EBE2C" />
         </div>
       )}
       <div className="h-full w-100 object-contain p-3">{image}</div>
