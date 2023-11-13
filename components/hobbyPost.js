@@ -88,35 +88,39 @@ export default function HeroPost({
         {!modal ? null : (
           <>
             <Modal isOpen={modal} onClose={() => setModal(false)}>
-              <div className="w-100 h-full ">
-                <h2 className="text-4xl font-semibold capitalize mb-4">
+              <div className="">
+                <h2 className="lg:text-4xl font-semibold capitalize mb-4 text-2xl">
                   Gallery {title}
                 </h2>
-                <div className="flex-row items-center justify-center h-full ">
-                  <div className="flex flex-row items-center justify-center ">
-                    <button onClick={() => Previous()} className=" w-20">
-                      <FontAwesomeIcon icon={faChevronLeft} />
-                    </button>
+                <div className="flex flex-row items-center justify-center ">
+                  <button
+                    onClick={() => Previous()}
+                    className="w-[40px] border-red-500 border"
+                  >
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                  </button>
 
-                    <div className="flex-row items-center justify-center h-auto w-100 ">
-                      <h1 className="text-center capitalize text-2xl p-5">
-                        {images[index].title}
-                      </h1>
-                      <ImagesNext image={images[index].photo}></ImagesNext>
-                      <div className="flex justify-center ">
-                        {images.map(() => {
-                          return (
-                            <div className="w-2 h-2 m-2">
-                              <FontAwesomeIcon icon={faCircle} />
-                            </div>
-                          );
-                        })}
-                      </div>
+                  <div className="flex justify-center flex-col border border-red-500 justify-center items-center">
+                    <h1 className="text-center capitalize text-2xl p-5">
+                      {images[index].title}
+                    </h1>
+                    <ImagesNext image={images[index].photo}></ImagesNext>
+                    <div className="flex justify-center ">
+                      {images.map(() => {
+                        return (
+                          <div className="w-1 h-1 m-2">
+                            <FontAwesomeIcon icon={faCircle} />
+                          </div>
+                        );
+                      })}
                     </div>
-                    <button onClick={() => Next()} className=" w-20">
-                      <FontAwesomeIcon icon={faChevronRight} />
-                    </button>
                   </div>
+                  <button
+                    onClick={() => Next()}
+                    className="w-[40px] border-red-500 border"
+                  >
+                    <FontAwesomeIcon icon={faChevronRight} />
+                  </button>
                 </div>
               </div>
             </Modal>

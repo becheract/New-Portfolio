@@ -1,0 +1,48 @@
+/* Portfolio.module.css */
+.portfolioContainer {
+  padding: 2rem;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.card {
+  border-radius: 25px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  border: 0.5px solid #000;
+  padding: 1rem;
+  margin-top: 2.5rem;
+  height: 20rem;
+  width: 100%;
+}
+
+.cardContent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.skillContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  gap: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 1rem;
+}

@@ -70,7 +70,7 @@ export default function Index({ projects, skills, experience, category }) {
                     <img
                       src={images.picture.src}
                       alt={uuid_v4()}
-                      className="w-[2rem] transform cursor-pointer transition duration-200 hover:scale-110"
+                      className="w-[2rem] transform cursor-pointer transition duration-500 hover:scale-110"
                       key={uuid_v4()}
                     />
                   </a>
@@ -97,7 +97,7 @@ export default function Index({ projects, skills, experience, category }) {
 
         <div className="flex flex-wrap flex-row mt-5 gap-x-7">
           <button
-            className="font-bold text-xl transform transition duration-200 hover:scale-110"
+            className="font-bold text-xl transform transition duration-500 hover:scale-110"
             onClick={() => setFilter("All")}
           >
             <Text style="Project">All</Text>
@@ -107,7 +107,7 @@ export default function Index({ projects, skills, experience, category }) {
               <>
                 <button
                   key={uuid_v4()}
-                  className="font-bold text-xl transform transition duration-200 hover:scale-110"
+                  className="font-bold text-xl transform transition duration-500 hover:scale-110"
                   onClick={() => setFilter(category.name)}
                 >
                   <Text style="Project">{category.name}</Text>
@@ -157,7 +157,7 @@ export default function Index({ projects, skills, experience, category }) {
       </Container>
 
       <Container>
-        <div className="flex flex-col sm:flex-row">
+        <div className="flex flex-col flex-wrap w-100 justify-center align-center">
           {experience.length > 0 &&
             experience.map((exp) => {
               return (

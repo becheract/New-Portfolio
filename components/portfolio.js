@@ -2,6 +2,7 @@ import PortfolioImage from "../components/portfolioImage";
 import { useState, useEffect } from "react";
 import SkillsImage from "../components/skillsImage";
 import { v4 as uuid_v4 } from "uuid";
+
 import Text from "../components/Text";
 export default function Portfolio({
   title,
@@ -41,7 +42,7 @@ export default function Portfolio({
           <Text style="Text">{text}</Text>
 
           <div className="flex flex-row justify-center align-center w-full m-3">
-            <button className="text-white font-bold transform p-2 m-2 w-1/2 bg-green-site rounded-[25px] transition duration-300 hover:scale-110 ">
+            <button className="text-white font-bold transform p-2 m-2 w-1/2 bg-green-site rounded-[25px] transition duration-500 hover:scale-110 ">
               <a href={github}>Code</a>
             </button>
 

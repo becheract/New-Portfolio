@@ -86,15 +86,32 @@ export default function Index({
             })}
           </div>
         </div>
-
-        {years.map((year) => {
-          return (
-            <div key={uuid_v4()}>
-              {filter === "All"
-                ? allPosts.map((post) => {
-                    if (post.date.substring(0, 4) == year) {
-                      return (
-                        <div key={uuid_v4()}>
+        <div className=" flex flex-wrap flex-row">
+          {years.map((year) => {
+            return (
+              <>
+                {filter === "All"
+                  ? allPosts.map((post) => {
+                      if (post.date.substring(0, 4) == year) {
+                        return (
+                          <>
+                            <BlogPost
+                              title={post.title}
+                              coverImage={post.coverImage}
+                              date={post.date}
+                              author={post.author}
+                              slug={post.slug}
+                              excerpt={post.excerpt}
+                              blogCategory={post.blogCategory}
+                            />
+                          </>
+                        );
+                      }
+                    })
+                  : allPosts.map((post) => {
+                      return filter === post.blogCategory[0].name &&
+                        post.date.substring(0, 4) == year ? (
+                        <>
                           <BlogPost
                             title={post.title}
                             coverImage={post.coverImage}
@@ -104,35 +121,18 @@ export default function Index({
                             excerpt={post.excerpt}
                             blogCategory={post.blogCategory}
                           />
-                        </div>
-                      );
-                    }
-                  })
-                : allPosts.map((post) => {
-                    return filter === post.blogCategory[0].name &&
-                      post.date.substring(0, 4) == year ? (
-                      <div key={uuid_v4()}>
-                        <BlogPost
-                          title={post.title}
-                          coverImage={post.coverImage}
-                          date={post.date}
-                          author={post.author}
-                          slug={post.slug}
-                          excerpt={post.excerpt}
-                          blogCategory={post.blogCategory}
-                        />
-                      </div>
-                    ) : null;
-                  })}
-            </div>
-          );
-        })}
-
-        {morePosts.length > 0 && (
+                        </>
+                      ) : null;
+                    })}
+              </>
+            );
+          })}
+        </div>
+        {/* {morePosts.length > 0 && (
           <>
             <MoreStories posts={morePosts} />
           </>
-        )}
+        )} */}
       </Container>
       <Footer></Footer>
     </>
