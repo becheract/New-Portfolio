@@ -8,8 +8,8 @@ export default function SkillsImage({ image: source }) {
   const image = source?.asset?._ref ? (
     <Image
       layout="responsive"
-      width={500}
-      height={200}
+      width={2000}
+      height={800}
       src={urlForImage(source).height(600).width(1000).url()}
       alt="gallery"
       onLoad={() => setLoading(false)}
@@ -25,9 +25,7 @@ export default function SkillsImage({ image: source }) {
           <PuffLoader color="#0EBE2C" />
         </div>
       )}
-      <div className="h-full sm:w-full w-60 object-contain p-3 flex justify-center items-center border-orange-500 border ">
-        {image}
-      </div>
+      <div className="p-3">{image}</div>
     </>
   );
 }

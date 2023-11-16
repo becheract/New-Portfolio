@@ -26,6 +26,8 @@ export default function Index({ projects, skills, experience, category }) {
   const [filter, setFilter] = useState("All");
   const [isVisible, setIsVisible] = useState(false);
   const transition = useTransition(isVisible, {});
+  const sortedExperiences = [...experience].sort((a, b) => a.year - b.year);
+
   const socials = [
     {
       picture: GitHub,
@@ -56,9 +58,9 @@ export default function Index({ projects, skills, experience, category }) {
             <Text style="Heading">
               Hi
               <span className="animate-waving-hand w-fit mx-0 " id="wave">
-                👋🏽,
+                👋🏽
               </span>
-              Welcome To <br /> My
+              , Welcome To <br /> My
               <span className=" text-green-site"> Portfolio Site </span>
             </Text>
 
@@ -158,10 +160,10 @@ export default function Index({ projects, skills, experience, category }) {
 
       <Container>
         <div className="flex flex-col flex-wrap w-100 justify-center align-center">
-          {experience.length > 0 &&
-            experience.map((exp) => {
+          {sortedExperiences.length > 0 &&
+            sortedExperiences.map((exp) => {
               return (
-                <div className="flex  ">
+                <div className="flex ">
                   <Experience exp={exp} index={uuid_v4()} />
                 </div>
               );

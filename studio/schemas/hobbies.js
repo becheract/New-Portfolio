@@ -30,7 +30,7 @@ export default {
       name: "gallery",
       title: "Gallery",
       type: "array",
-      of: [{ type: "reference", to: { type: "test" } }],
+      of: [{ type: "reference", to: { type: "photos" } }],
     },
   ],
 };

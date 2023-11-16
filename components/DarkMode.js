@@ -2,24 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export default function DarkMode() {
-  const [icon, setIcon] = useState("🌝");
-  const [toggle, setToggle] = useState(false);
-  const { setTheme } = useTheme();
-  useEffect(() => {
-    switch (icon) {
-      case "🌞":
-        setIcon("🌝");
-        setTheme("dark");
-        break;
-      case "🌝":
-        setIcon("🌞");
-        setTheme("light");
-        break;
-    }
-  }, [toggle]);
+  const { theme, setTheme } = useTheme();
+  const [icon, setIcon] = useState("🌞");
 
+  // Initialize theme on component mount
   useEffect(() => {
     setTheme("light");
-  }, []);
-  return <button onClick={() => setToggle((prev) => !prev)}>{icon}</button>;
+  }, [setTheme]);
+
+  // Effect to handle theme switching
+  useEffect(() => {
+    if (theme === "light") {
+      setIcon("🌞");
+    } else {
+      setIcon("🌝");
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  return <button onClick={toggleTheme}>{icon}</button>;
 }

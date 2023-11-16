@@ -22,6 +22,7 @@ export default function HeroPost({
   const [modal, setModal] = useState(false);
   const [galleryImages, setGalleryImages] = useState([]);
   const [index, setIndex] = useState(0);
+
   const OpenImages = async () => {
     switch (modal) {
       case false:
@@ -51,7 +52,6 @@ export default function HeroPost({
 
   //for gallery of images
   useEffect(() => {
-    console.log(images);
     images.map((photo) => {
       setGalleryImages((prevGallery) => [...prevGallery, photo]);
     });
@@ -88,37 +88,32 @@ export default function HeroPost({
         {!modal ? null : (
           <>
             <Modal isOpen={modal} onClose={() => setModal(false)}>
-              <div className="">
-                <h2 className="lg:text-4xl font-semibold capitalize mb-4 text-2xl">
-                  Gallery {title}
-                </h2>
-                <div className="flex flex-row items-center justify-center ">
-                  <button
-                    onClick={() => Previous()}
-                    className="w-[40px] border-red-500 border"
-                  >
+              <h2 className="lg:text-4xl font-semibold capitalize mb-4 text-2xl">
+                Gallery {title}
+              </h2>
+              <div className="flex flex-row items-center justify-center ">
+                <div className="w-1/2 mb-auto mt-auto">
+                  <button onClick={() => Previous()} className="w-[40px] ">
                     <FontAwesomeIcon icon={faChevronLeft} />
                   </button>
-
-                  <div className="flex justify-center flex-col border border-red-500 justify-center items-center">
-                    <h1 className="text-center capitalize text-2xl p-5">
-                      {images[index].title}
-                    </h1>
-                    <ImagesNext image={images[index].photo}></ImagesNext>
-                    <div className="flex justify-center ">
-                      {images.map(() => {
-                        return (
-                          <div className="w-1 h-1 m-2">
-                            <FontAwesomeIcon icon={faCircle} />
-                          </div>
-                        );
-                      })}
-                    </div>
+                </div>
+                <div className="flex justify-center flex-col justify-center items-center">
+                  <h1 className="text-center capitalize sm:text-2xl text-md p-5">
+                    {images[index].title}
+                  </h1>
+                  <ImagesNext image={images[index].photo}></ImagesNext>
+                  <div className="flex justify-center ">
+                    {images.map(() => {
+                      return (
+                        <div className="w-1 h-1 m-2">
+                          <FontAwesomeIcon icon={faCircle} />
+                        </div>
+                      );
+                    })}
                   </div>
-                  <button
-                    onClick={() => Next()}
-                    className="w-[40px] border-red-500 border"
-                  >
+                </div>
+                <div className="w-1/2 flex flex-row justify-end mb-auto mt-auto">
+                  <button onClick={() => Next()} className="w-[40px]">
                     <FontAwesomeIcon icon={faChevronRight} />
                   </button>
                 </div>

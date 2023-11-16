@@ -35,3 +35,36 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+@keyframes waveAnimation {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-waving-hand {
+  display: inline-block;
+  animation-name: waveAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%; /* Adjust as needed to move the rotation point */
+}
